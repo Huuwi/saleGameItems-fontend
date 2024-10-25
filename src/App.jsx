@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
+import Login from './components/login/Login'
+import Register from './components/register/Register'
+import HomePage from './components/homepage/HomePage'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
-  useEffect(() => {
-
-    const fetchData = async () => {
-
-      await axios.post(import.meta.env.VITE_BACKEND_URL + "/..captcha")
-
-    }
-
-  })
-
   return (
     <>
-
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
