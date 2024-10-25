@@ -3,9 +3,7 @@ import style from './homePage.module.css'
 
 function HomePage() {
     <>
-        <div className="login-container">
-            
-        </div>
+        <div className="login-container"></div>
     </>
 }
 
