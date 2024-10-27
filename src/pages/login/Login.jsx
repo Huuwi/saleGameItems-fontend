@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import style from './login.module.css';
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function Login() {
+    let navigate = useNavigate()
     const [base64Captcha, setBase64Captcha] = useState('');
     const [userName, setUserName] = useState('');
     const [passWord, setPassWord] = useState('');
@@ -27,12 +29,12 @@ function Login() {
     const handleLogin = async () => {
         try {
             let responseLogin = await axios.post(import.meta.env.VITE_BACKEND_URL + "/login", { userName, passWord, text: captcha }, { withCredentials: true })
-            console.log(responseLogin.data);
-
+            let userData = responseLogin.data
+            localStorage.setItem("userData", JSON.stringify(userData))
+            navigate("/dashBoard")
 
         } catch (error) {
             console.log(error);
-
             alert(err.response.data.message);
         }
     };
