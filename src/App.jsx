@@ -5,6 +5,8 @@ import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import HomePage from './pages/homepage/HomePage'
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import Dashboard from './pages/dashBoard/DashBoard.jsx'
+
 
 function App() {
 
@@ -19,7 +21,7 @@ function App() {
         let responseUserData = await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/getInforUser", {}, { withCredentials: true })
         let userData = responseUserData.data
         localStorage.setItem("userData", JSON.stringify(userData))
-        navigate("/dashBoard")
+        navigate(location.pathname)
 
 
       } catch (error) {
@@ -56,7 +58,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path='/dashBoard' element={<Dashboard />} />
       </Routes>
     </>
   )
