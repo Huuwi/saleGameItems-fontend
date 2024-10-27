@@ -1,124 +1,142 @@
-.login-container {
+/* register.module.css */
+
+.container {
     width: 100%;
-    height: 100%;
-    background: url('../../assets/lq.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 100vh;
+    background: url('../../assets/bgRegister.png') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.login-form {
-    width: 25%;
-    height: 80%;
-    background: hsl(219, 39%, 15%);
-    opacity: 0.7;
-    box-shadow: 5px 5px 5px black;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+.form {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
 }
 
 .logo {
-    width: 100%;
-    height: 20%;
-    background: url('../../assets/logo.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: url('../../assets/logo.png') no-repeat center/contain;
 }
 
 .title {
-    margin-top: -40px;
-    font-weight: bold;
+    margin-bottom: 20px;
     font-family: "Oxanium", sans-serif;
-    ;
+    font-size: 1.5rem;
+    color: #f0f0f0;
 }
 
-label {
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #1a1a1a;
     color: white;
-    margin-right: 150px;
 }
 
-#login-input {
-    width: 250px;
-    height: 35px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background: transparent;
-    border: 1px solid white;
-    color: #f9f9f9;
+input::placeholder {
+    color: #bbb;
 }
 
-#login-input:focus {
-    box-shadow: 5px 5px 5px black;
-}
-
-.captcha-container {
-    width: 90%;
-    height: 7%;
-    /* background: #f9f9f9; */
+.captchaSection {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 10px 0;
 }
 
-.captcha {
-    width: 40%;
-    height: 100%;
-    color: white;
-    background: none;
-    border: 1px solid white;
+.captchaSection img {
+    width: 50%;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 5px;
 }
 
-.captcha::placeholder {
-    text-align: center;
+.captchaSection button {
+    width: 40px;
+    height: 40px;
+    background: url('../../assets/reload.png') no-repeat center/contain;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.5s;
 }
 
-.captcha-img {
-    width: 40%;
-    height: 100%;
-    background: black;
-}
-
-.captcha-btn {
-    width: 12%;
-    height: 100%;
-    background: url('../../assets/reload.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    border-radius: 50%;
-    transition: 1s;
-}
-
-.captcha-btn:hover {
+.captchaSection button:hover {
     transform: rotate(360deg);
-    border: 1px solid white;
 }
 
-.login-btn {
-    width: 250px;
-    height: 45px;
-    background: #F40025;
+.registerBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #f40025;
     color: white;
-    /* border: 1px solid #881022; */
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.login-form>p {
-    color: white;
+.registerBtn:hover {
+    background-color: #c3001d;
 }
 
-.login-form>p>a {
-    color: #f80025;
+p {
+    margin-top: 15px;
+}
+
+p a {
+    color: #f40025;
+    text-decoration: none;
     font-weight: bold;
 }
-a {
-    cursor: pointer;
+
+p a:hover {
+    text-decoration: underline;
 }
 
-.hadAccount {
-    margin-bottom: 30px;
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.2rem;
+    }
+
+    input {
+        padding: 8px;
+    }
+
+    .captchaSection img {
+        width: 45%;
+    }
+
+    .captchaSection button {
+        width: 35px;
+        height: 35px;
+    }
 }

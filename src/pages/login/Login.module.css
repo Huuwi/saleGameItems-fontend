@@ -1,8 +1,8 @@
 .login-container {
     width: 100%;
-    height: 100%;
-    background: url('../../assets/lq.jpg');
-    background-repeat: no-repeat;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../../assets/lq.jpg') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -10,111 +10,165 @@
 }
 
 .login-form {
-    width: 25%;
-    height: 80%;
-    background: hsl(219, 39%, 15%);
-    opacity: 0.7;
-    box-shadow: 5px 5px 5px black;
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+input::placeholder {
+    color: #f9f9f9;
+    /* Thay đổi màu sắc theo ý muốn */
+    opacity: 0.8;
+    /* Độ mờ (nếu muốn) */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .logo {
-    width: 100%;
-    height: 20%;
-    background: url('../../assets/logo.png');
-    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    background: url('../../assets/logo.png') no-repeat center;
     background-size: contain;
-    background-position: center;
+    margin-bottom: 10px;
 }
 
 .title {
-    margin-top: -40px;
     font-weight: bold;
     font-family: "Oxanium", sans-serif;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    text-align: center;
 }
 
 label {
     color: white;
-    margin-right: 150px;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    margin-left: 20px;
 }
 
-#login-input {
-    width: 250px;
-    height: 35px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background: transparent;
-    border: 1px solid white;
-    color: #f9f9f9;
+.input-field {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding-left: 12px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
 }
 
-#login-input:focus {
-    box-shadow: 5px 5px 5px black;
+.input-field:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 .captcha-container {
-    width: 90%;
-    height: 7%;
-    /* background: #f9f9f9; */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .captcha {
-    width: 40%;
-    height: 100%;
+    flex: 1;
+    height: 40px;
     color: white;
     background: none;
     border: 1px solid white;
-}
-
-.captcha::placeholder {
-    text-align: center;
+    margin-right: 10px;
+    border-radius: 8px;
+    padding-left: 12px;
 }
 
 .captcha-img {
-    width: 40%;
-    height: 100%;
-    background: black;
+    width: 130px;
+    height: 40px;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 .captcha-btn {
-    width: 12%;
-    height: 100%;
-    background: url('../../assets/reload.png');
-    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    background: url('../../assets/reload.png') no-repeat center;
     background-size: contain;
-    background-position: center;
+    border: none;
     border-radius: 50%;
-    transition: 1s;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
 .captcha-btn:hover {
     transform: rotate(360deg);
-    border: 1px solid white;
 }
+
+
 
 .login-btn {
-    width: 250px;
-    height: 45px;
-    background: #F40025;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
     color: white;
-    /* border: 1px solid #881022; */
-}
-
-.login-form>p {
-    color: white;
-}
-
-.login-form>p>a {
-    color: #f80025;
     font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.login-btn:hover {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    transform: scale(1.05);
 }
 
 .forget-password {
-    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.error-message {
+    color: #ff6347;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .login-form {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .login-btn {
+        height: 45px;
+    }
 }
