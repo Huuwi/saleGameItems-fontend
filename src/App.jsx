@@ -3,7 +3,7 @@ import './App.css'
 import axios from 'axios'
 import Login from './components/login/Login'
 import Register from './components/register/Register'
-import HomePage from './components/homepage/HomePage'
+import HomePage from './pages/homepage/HomePage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
