@@ -6,7 +6,7 @@ import Register from './pages/register/Register'
 import HomePage from './pages/homepage/HomePage'
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Dashboard from './pages/dashBoard/DashBoard.jsx'
-
+import Test from './pages/test/Test.jsx'
 
 function App() {
 
@@ -60,6 +60,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="/" element={<Dashboard />} />
         <Route path='/dashBoard' element={<Dashboard />} />
+        <Route path='/test' element={<Test />} />
       </Routes>
     </>
   )
