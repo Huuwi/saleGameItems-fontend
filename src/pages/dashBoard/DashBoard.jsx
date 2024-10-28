@@ -1,50 +1,58 @@
 // Dashboard.js
-import React from 'react';
-import styles from './Dashboard.module.css';
+import React, { useEffect, useState, useRef } from 'react';
+import style from './Dashboard.module.css';
 import { FaUserFriends, FaChartPie, FaStore, FaCommentDots, FaWallet, FaUserCircle } from 'react-icons/fa';
+import axios from 'axios';
+import NavbarDashboard from '../../components/Navbardashboard/Navbar.dashboard';
+import HeaderDashboard from '../../components/HeaderDashboard/Header.dashboard';
+import ContentSaling from '../../components/Content.Saling/Content.saling';
+import { json } from 'react-router-dom';
 
 const Dashboard = () => {
+    const [listItems, setListItems] = useState([]);
+    const curIndex = useRef(0);
+
+    const handleLeftClick = () => {
+        let listSaleItemsData = localStorage.getItem('listSaleItemsData');
+        try {
+            listSaleItemsData = JSON.parse(listSaleItemsData);
+            console.log(listSaleItemsData);
+            curIndex.current += 4;
+            setListItems(listSaleItemsData.slice(curIndex.current, curIndex.current + 4));            
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+    const handleRightClick = () => { }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let responseSalingItemList = await axios.post(import.meta.env.VITE_BACKEND_URL + '/auth/getSalingItemList', {}, { withCredentials: true })
+                console.log(responseSalingItemList.data);
+                localStorage.setItem('listSaleItemsData', JSON.stringify(responseSalingItemList.data.salingItemListData));
+                setListItems(responseSalingItemList.data.salingItemListData.slice(0, 4))
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+
+        fetchData();
+    }, [])
+
     return (
-        <div className={styles.dashboardContainer}>
-            <header className={styles.header}>
-                <h1>Dashboard</h1>
-            </header>
+        <div className={style['dashboard-container']}>
+            <NavbarDashboard />
 
-            <div className={styles.mainContent}>
-                <nav className={styles.sidebar}>
-                    <ul>
-                        <li className={styles.menuItem}>
-                            <FaWallet className={styles.icon} />
-                            <span>Kho đồ</span>
-                        </li>
-                        <li className={styles.menuItem}>
-                            <FaUserFriends className={styles.icon} />
-                            <span>Tìm bạn bè</span>
-                        </li>
-                        <li className={styles.menuItem}>
-                            <FaCommentDots className={styles.icon} />
-                            <span>Đoạn chat</span>
-                        </li>
-                        <li className={styles.menuItem}>
-                            <FaStore className={styles.icon} />
-                            <span>Mua bán</span>
-                        </li>
-                        <li className={styles.menuItem}>
-                            <FaChartPie className={styles.icon} />
-                            <span>Thống kê cá nhân</span>
-                        </li>
-                        <li className={styles.menuItem}>
-                            <FaUserCircle className={styles.icon} />
-                            <span>Thông tin tài khoản</span>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div className={styles.contentArea}>
-                    <h2>Chào mừng đến với Dashboard!</h2>
-                    <p>Chọn một chức năng từ menu bên trái để bắt đầu.</p>
-                </div>
+            <div id={style["workplace"]}>
+                <HeaderDashboard />
+                <ContentSaling salingData={listItems} />
+                <button onClick={handleLeftClick}>trai</button>
+                <button>phai</button>
             </div>
+
         </div>
     );
 };

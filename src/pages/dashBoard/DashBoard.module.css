@@ -1,69 +1,12 @@
-/* Dashboard.module.css */
-
-.dashboardContainer {
+.dashboard-container {
+    height: 100%;
+    width: 100%;
+    background: red;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #f0f2f5;
 }
 
-.header {
-    background-color: #4a90e2;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.mainContent {
-    display: flex;
-    flex: 1;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: #ffffff;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menuItem {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.menuItem:hover {
-    background-color: #e6f0ff;
-}
-
-.icon {
-    margin-right: 10px;
-    color: #4a90e2;
-    font-size: 1.5rem;
-}
-
-.contentArea {
-    flex: 1;
-    padding: 2rem;
-    background-color: #f9fafc;
-    border-left: 1px solid #ddd;
-}
-
-.contentArea h2 {
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.contentArea p {
-    color: #555;
+#workplace {
+    height: 100%;
+    width: 85%;
+    background: yellow;
 }

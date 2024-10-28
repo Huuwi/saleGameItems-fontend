@@ -35,7 +35,7 @@ function Login() {
 
         } catch (error) {
             console.log(error);
-            alert(err.response.data.message);
+            alert(error.response.data.message);
         }
     };
 
