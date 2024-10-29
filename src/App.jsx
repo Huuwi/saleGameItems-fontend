@@ -3,7 +3,6 @@ import './App.css'
 import axios from 'axios'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
-import HomePage from './pages/homepage/HomePage'
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Dashboard from './pages/dashBoard/DashBoard.jsx'
 import Test from './pages/test/Test.jsx'
@@ -27,9 +26,10 @@ function App() {
       } catch (error) {
 
         try {
-          await axios.post(import.meta.env.VITE_BACKEND_URL + "/getNewAccessToken", {}, { withCredentials: true })
+          let responseNewAt = await axios.post(import.meta.env.VITE_BACKEND_URL + "/getNewAccessToken", {}, { withCredentials: true })
           let responseUserData = await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/getInforUser", {}, { withCredentials: true })
           let userData = responseUserData.data
+          localStorage.setItem("at", responseNewAt.data.at)
           localStorage.setItem("userData", JSON.stringify(userData))
           navigate("/dashBoard")
 

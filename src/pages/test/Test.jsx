@@ -1,51 +1,78 @@
-import { useState, useEffect } from "react";
-import { socket } from "../../socket.io/socket";
+import React, { useEffect, useRef, useState } from 'react';
+import styles from './Test.module.css';
+import SocketClient from '../../socket.io/socket';
+import axios from 'axios';
 
-function Test() {
-    const [text, setText] = useState("hello");  // Sử dụng const thay vì let cho state
-    const [txtInput, setTxtInput] = useState("");
 
-    const handleMessage = (message) => {
-        console.log("Message from server socket:", message);
-        setText(message);
-    };
+
+const Test = () => {
+
+
+    const [messages, setMessages] = useState([]);
+    const inputValue = useRef('');
+
 
     useEffect(() => {
-        // Định nghĩa hàm callback một lần
+        let clientSocket = new SocketClient()
+        let socket = clientSocket.connect()
 
 
-        // Lắng nghe sự kiện từ socket
-        socket.on("message", handleMessage);
+        socket.on("message", (msg) => {
+            console.log(msg);
+            setMessages((prevMessages) => [...prevMessages, msg])
+        })
+        socket.on("connect_error", (err) => {
+            console.log(err.message); // prints the message associated with the error
+            alert(err.message)
+        });
+    }, [])
 
-        // Dọn dẹp khi component unmount
-        return () => {
-            socket.off("message", handleMessage);  // Xóa callback cụ thể
-        };
-    }, []);  // Chạy một lần khi component mount
 
-    function handleClick() {
-        socket.emit("message", txtInput);  // Gửi dữ liệu tới server
-        setTxtInput("");  // Xóa nội dung input sau khi gửi
-    }
+    const handleSend = async () => {
+        if (inputValue.current.trim()) {
+            let response = await axios.get(import.meta.env.VITE_BACKEND_URL + "/testSocket", { withCredentials: true })
+            console.log(response.data);
+            // inputValue.current = ""
+        }
+    };
 
-    function handleOnChange(e) {
-        setTxtInput(e.target.value);  // Cập nhật state khi nhập dữ liệu
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSend();
+        }
+    };
+
+    const handleOnchange = (e) => {
+        inputValue.current = e.target.value
+        console.log(inputValue.current);
     }
 
     return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
-            <h2>{text}</h2>
-            <input
-                value={txtInput}
-                onChange={handleOnChange}
-                type="text"
-                style={{ minWidth: "300px", minHeight: "40px" }}
-            />
-            <button onClick={handleClick} style={{ height: "40px", width: "150px" }}>
-                Submit
-            </button>
+        <div className={styles.messengerContainer}>
+            <div className={styles.header}>
+                <h2>Chat</h2>
+            </div>
+            <div className={styles.messages}>
+                {messages.map((msg, index) => (
+                    <div key={index} className={styles.message}>
+                        {msg}
+                    </div>
+                ))}
+            </div>
+            <div className={styles.inputContainer}>
+                <input
+                    type="text"
+                    onChange={handleOnchange}
+                    onKeyPress={handleKeyPress}
+                    className={styles.input}
+                    placeholder="Type a message..."
+                />
+                <button onClick={handleSend} className={styles.sendButton}>
+                    Send
+                </button>
+            </div>
         </div>
     );
-}
+};
 
 export default Test;
