@@ -1,5 +1,5 @@
 .item {
-    height: 350px;
+    height: 370px;
     width: 250px;
     border: 1px solid white;
     border-bottom-left-radius: 20px;
@@ -28,6 +28,7 @@
 
 .item>p {
     margin-top: 30px;
+    margin-bottom: 14px;
     color: #ffd166;
     font-family: "Exo 2", sans-serif;
     font-size: 13.5px;
@@ -38,4 +39,25 @@
 
 .item>p:last-child {
     margin-bottom: 20px;
+}
+
+.desc {
+    max-width: 100%;
+    max-height: 20%;
+    /* background: red; */
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 0px 10px;
+    color: #ffd166;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #ffd166;
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.desc::-webkit-scrollbar {
+    display: none;
 }

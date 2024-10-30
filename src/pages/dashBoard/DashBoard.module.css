@@ -40,7 +40,7 @@
     cursor: pointer;
 }
 
-.product {
+#product {
     width: 22%;
     height: 80%;
     border-radius: 50px;
@@ -56,15 +56,14 @@
     padding-bottom: 5px;
 }
 
-.product:hover {
+#product:hover {
     background: #ee4266;
 }
 
-.product>p {
+#product>p {
     padding-bottom: 12px;
 }
 
-
-
-
-
+.active {
+    background: #ee4266;
+}

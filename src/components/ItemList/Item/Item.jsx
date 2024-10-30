@@ -12,7 +12,7 @@ function Item(props) {
         avatarImg: "https://lienquan.garena.vn/wp-content/uploads/2024/05/Remove-bg.ai_1718860136853.png"
     }
 
-    let { image, name, nickName, desc, price, avatarImg } = dataItem
+    let { image, name, nickName, description, price, avatarImg } = dataItem
 
 
 
@@ -32,8 +32,10 @@ function Item(props) {
                 }}></div>
                 <p>Tên sản phẩm: {name}</p>
                 <p>Giá sản phẩm: {price}</p>
+                <div className={style["desc"]}>
+                    <p>Giới thiệu sản phẩm: {description}</p>
+                </div>
                 <p>Chủ sản phẩm: {nickName}</p>
-                <p>Giới thiệu sản phẩm: {desc}</p>
             </div >
         </>
     )

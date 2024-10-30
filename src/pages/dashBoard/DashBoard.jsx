@@ -10,7 +10,7 @@ import { json } from 'react-router-dom';
 import ItemList from '../../components/ItemList/ItemList';
 
 const Dashboard = () => {
-
+    const [type, setType] = useState("TrangPhuc")
 
     return (
         <>
@@ -20,13 +20,27 @@ const Dashboard = () => {
                     <HeaderDashboard />
                     <div className={style["product-type"]}>
                         <p>Danh Mục</p>
-                        <div className={style["product"]}><p>Trang phục</p></div>
-                        <div className={style["product"]}><p>Vật phẩm</p></div>
-                        <div className={style["product"]}><p>Emoji</p></div>
+
+                        <div className={`${style.product} ${type === "TrangPhuc" ? style.active : ""}`} id={style["product"]} onClick={
+                            () => {
+                                setType("TrangPhuc")
+                            }
+                        }><p>Trang phục</p></div>
+
+                        <div className={`${style.product} ${type === "VatPham" ? style.active : ""}`} id={style["product"]} onClick={
+                            () => {
+                                setType("VatPham")
+                            }
+                        }><p>Vật phẩm</p></div>
+
+                        <div className={`${style.product} ${type === "Emoji" ? style.active : ""}`} id={style["product"]} onClick={
+                            () => {
+                                setType("Emoji")
+                            }
+                        }><p>Emoji</p></div>
                     </div>
                     <ItemList />
                 </div>
-
             </div>
         </>
     );

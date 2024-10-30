@@ -67,21 +67,21 @@ function ItemList() {
         }
     }
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             let responseSalingItemList = await axios.post(import.meta.env.VITE_BACKEND_URL + '/auth/getSalingItemList', {}, { withCredentials: true })
-    //             console.log(responseSalingItemList.data);
-    //             localStorage.setItem('listSaleItemsData', JSON.stringify(responseSalingItemList.data.salingItemListData));
-    //             setListItems(responseSalingItemList.data.salingItemListData.slice(0, 8))
-    //         }
-    //         catch (err) {
-    //             console.log(err);
-    //         }
-    //     }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let responseSalingItemList = await axios.post(import.meta.env.VITE_BACKEND_URL + '/auth/getSalingItemList', {}, { withCredentials: true })
+                console.log(responseSalingItemList.data);
+                localStorage.setItem('listSaleItemsData', JSON.stringify(responseSalingItemList.data.salingItemListData));
+                setListItems(responseSalingItemList.data.salingItemListData.slice(0, 8))
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
 
-    //     fetchData();
-    // }, [])
+        fetchData();
+    }, [])
 
 
     return (
