@@ -20,7 +20,7 @@ function Item(props) {
         <>
             <div className={style["item"]}>
                 <div className={style["item-img"]} style={{
-                    background: `url(${image})`,
+                    backgroundImage: `url(${image})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "contain",
                     marginTop: "7px",
