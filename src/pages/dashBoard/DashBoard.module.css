@@ -1,12 +1,70 @@
 .dashboard-container {
     height: 100%;
     width: 100%;
-    background: red;
     display: flex;
+    overflow-x: hidden;
+    background: #171744;
+    padding-left: 270px;
+}
+
+.dashboard-container::-webkit-scrollbar {
+    display: none;
 }
 
 #workplace {
-    height: 100%;
-    width: 85%;
-    background: yellow;
+    height: 500%;
+    width: 98.5%;
+    /* padding: 0px 40px; */
+    display: flex;
+    flex-direction: column;
 }
+
+.product-type {
+    /* background: red; */
+    width: 40%;
+    height: 50px;
+    /* margin-left: 230px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.product-type>p {
+    color: white;
+    margin-bottom: 10px;
+    font-family: "Exo 2", sans-serif;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.product {
+    width: 22%;
+    height: 80%;
+    border-radius: 50px;
+    border: 2px solid #ffd166;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: 1s;
+    font-family: "Exo 2", sans-serif;
+    padding-bottom: 5px;
+}
+
+.product:hover {
+    background: #ee4266;
+}
+
+.product>p {
+    padding-bottom: 12px;
+}
+
+
+
+
+

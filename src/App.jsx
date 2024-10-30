@@ -18,7 +18,7 @@ function App() {
 
       try {
         let responseUserData = await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/getInforUser", {}, { withCredentials: true })
-        let userData = responseUserData.data
+        let userData = responseUserData.data.userData
         localStorage.setItem("userData", JSON.stringify(userData))
         navigate(location.pathname)
 

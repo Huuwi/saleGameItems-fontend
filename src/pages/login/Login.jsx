@@ -29,7 +29,7 @@ function Login() {
     const handleLogin = async () => {
         try {
             let responseLogin = await axios.post(import.meta.env.VITE_BACKEND_URL + "/login", { userName, passWord, text: captcha }, { withCredentials: true })
-            let userData = responseLogin.data
+            let userData = responseLogin.data.userData
             localStorage.setItem("at", responseLogin.data.at)
             localStorage.setItem("userData", JSON.stringify(userData))
             navigate("/dashBoard")

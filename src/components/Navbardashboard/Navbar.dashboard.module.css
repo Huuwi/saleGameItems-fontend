@@ -1,5 +1,6 @@
 #nav-container {
     height: 100%;
     width: 15%;
-    background: #191919;
+    background: #ee4266;
+    position: fixed;
 }
