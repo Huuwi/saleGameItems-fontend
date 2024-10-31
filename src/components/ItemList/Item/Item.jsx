@@ -31,7 +31,7 @@ function Item(props) {
                     cursor: "pointer"
                 }}></div>
                 <p>Tên sản phẩm: {name}</p>
-                <p>Giá sản phẩm: {price}</p>
+                <p>Giá sản phẩm: {price} vàng</p>
                 <div className={style["desc"]}>
                     <p>Giới thiệu sản phẩm: {description}</p>
                 </div>
