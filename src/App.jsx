@@ -6,6 +6,7 @@ import Register from './pages/register/Register'
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Dashboard from './pages/dashBoard/DashBoard.jsx'
 import Test from './pages/test/Test.jsx'
+import Products from './components/Products/Products.jsx'
 
 function App() {
 
@@ -51,8 +52,6 @@ function App() {
   }, [])
 
 
-
-
   return (
     <>
       <Routes>
@@ -61,6 +60,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path='/dashBoard' element={<Dashboard />} />
         <Route path='/test' element={<Test />} />
+        <Route path='/products' element={<Products />} />
       </Routes>
     </>
   )

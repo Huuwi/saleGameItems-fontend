@@ -8,6 +8,8 @@ import HeaderDashboard from '../../components/HeaderDashboard/Header.dashboard';
 import ContentSaling from '../../components/Content.Saling/Content.saling';
 import { json } from 'react-router-dom';
 import ItemList from '../../components/ItemList/ItemList';
+import lolVideo from '../../assets/lol2.webm';
+
 
 const Dashboard = () => {
     const [type, setType] = useState("TrangPhuc")
@@ -18,28 +20,46 @@ const Dashboard = () => {
             <div className={style['dashboard-container']}>
                 <div id={style["workplace"]}>
                     <HeaderDashboard />
-                    <div className={style["product-type"]}>
-                        <p>Danh Mục</p>
+                    <div className={style["news"]}>
+                        <p className={style["title"]}>TIN TỨC VÀ SỰ KIỆN</p>
+                        <div className={style["recommend-product"]}>
+                            <div className={style["product"]}>
+                                <div className={style["banner-wrapper"]}>
+                                    <div className={style["product-banner"]}></div>
+                                </div>
+                                <button className={style["link-btn"]}></button>
+                                <p className={style["product-desc"]}>
 
-                        <div className={`${style.product} ${type === "TrangPhuc" ? style.active : ""}`} id={style["product"]} onClick={
-                            () => {
-                                setType("TrangPhuc")
-                            }
-                        }><p>Trang phục</p></div>
-
-                        <div className={`${style.product} ${type === "VatPham" ? style.active : ""}`} id={style["product"]} onClick={
-                            () => {
-                                setType("VatPham")
-                            }
-                        }><p>Vật phẩm</p></div>
-
-                        <div className={`${style.product} ${type === "Emoji" ? style.active : ""}`} id={style["product"]} onClick={
-                            () => {
-                                setType("Emoji")
-                            }
-                        }><p>Emoji</p></div>
+                                </p>
+                            </div>
+                            <div className={style["product"]}>
+                                <div className={style["banner-wrapper"]}>
+                                    <div className={style["product-banner1"]}></div>
+                                </div>
+                                <p className={style["product-desc"]}></p>
+                            </div>
+                            <div className={style["product"]}>
+                                <div className={style["banner-wrapper"]}>
+                                    <div className={style["product-banner2"]}></div>
+                                </div>
+                                <p className={style["product-desc"]}></p>
+                            </div>
+                            {/* <div className={style["decorate-shape2"]}></div> */}
+                            <div className={style["video-decoration"]}>
+                                <video className={style["decorate-shape3"]} autoPlay muted controls loop>
+                                    <source src={lolVideo} type="video/mp4" />
+                                    Trình duyệt của bạn không hỗ trợ thẻ video.
+                                </video>
+                            </div>
+                        </div>
                     </div>
-                    <ItemList />
+                    <div className={style["demo-product"]}>
+                        <div className={style["user-desc"]}></div>
+                        <div className={style["decorate-shape"]}>
+                            <div className={style["img"]}></div>
+                        </div>
+                    </div>
+                    <div className={style["footer"]}></div>
                 </div>
             </div>
         </>

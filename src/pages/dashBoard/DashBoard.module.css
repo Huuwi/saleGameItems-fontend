@@ -4,7 +4,7 @@
     display: flex;
     overflow-x: hidden;
     background: #4c3b4d;
-    padding-left: 270px;
+    padding-left: 230px;
 }
 
 .dashboard-container::-webkit-scrollbar {
@@ -12,58 +12,190 @@
 }
 
 #workplace {
-    height: 500%;
-    width: 98.5%;
+    height: 450%;
+    width: 100%;
     /* padding: 0px 40px; */
     display: flex;
     flex-direction: column;
 }
 
-.product-type {
-    /* background: red; */
-    width: 40%;
-    height: 50px;
-    /* margin-left: 230px; */
+.news {
+    width: 100%;
+    height: 15%;
+    margin-top: 10px;
+    background-color: aliceblue;
+    border-top: 1px solid #f2f5ea;
+    border-bottom: 1px solid #f2f5ea;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    border-bottom: 15px dashed #4C3B4D;
 }
 
-.product-type>p {
-    color: white;
-    margin-bottom: 10px;
-    font-family: "Exo 2", sans-serif;
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-size: 20px;
-    cursor: pointer;
+.title {
+    font-size: 26px;
+    color: black;
+    font-family: "Itim", cursive;
+    padding-bottom: 20px;
+    font-style: italic;
 }
 
-#product {
-    width: 22%;
-    height: 80%;
-    border-radius: 50px;
-    border: 2px solid #ffd166;
-    background: none;
-    cursor: pointer;
+.recommend-product {
+    width: 97%;
+    height: 90%;
+    /* background-color: yellowgreen; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.product {
+    height: 90%;
+    width: 30%;
+    /* background-color: aquamarine; */
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    border: 2px solid #BE985E;
+}
+
+.banner-wrapper {
+    width: 100%;
+    height: 70%;
+    max-width: 100%;
+    max-height: 60%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.link-btn {
+    width: 100px;
+    height: 30px;
+}
+
+.product-banner {
+    width: 100%;
+    height: 100%;
+    background: url('../../assets/flo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: 0.3s;
+}
+
+.product-banner:hover {
+    scale: 1.2;
+}
+
+.product-banner1 {
+    width: 100%;
+    height: 100%;
+    background: url('../../assets/nak.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: 0.3s;
+}
+
+.product-banner1:hover {
+    scale: 1.2;
+}
+
+.product-banner2 {
+    width: 100%;
+    height: 100%;
+    background: url('../../assets/wukong.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: 0.3s;
+}
+
+.product-banner2:hover {
+    scale: 1.2;
+}
+
+.decorate-shape2 {
+    position: absolute;
+    width: 10%;
+    height: 127.7%;
+    background-color: #e94f37;
+    top: 1246px;
+    left: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.demo-product {
+    width: 100%;
+    height: 30%;
+    margin-top: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    transition: 1s;
-    font-family: "Exo 2", sans-serif;
-    padding-bottom: 5px;
+    position: relative;
 }
 
-#product:hover {
-    background: #ee4266;
+.user-desc {
+    height: 40%;
+    width: 100%;
+    background-color: aliceblue;
+    border-top: 15px dashed #4C3B4D;
+    /* opacity: 0.46; */
 }
 
-#product>p {
-    padding-bottom: 12px;
+.decorate-shape {
+    height: 45%;
+    width: 35%;
+    border: 5px solid #BE985E;
+    position: absolute;
+    rotate: 45deg;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    right: 30px;
+    
 }
 
-.active {
-    background: #ee4266;
+.img {
+    width: 130%;
+    height: 130%;
+    rotate: -45deg;
+    background: url('../../assets/thresjh.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    bottom: -120px;
+    right: -70px;
+    top: -20px;
+    left: -120px;
+}
+
+.footer {
+    width: 100%;
+    height: 10%;
+    margin-top: 240px;
+    background-color: black;
+}
+
+.video-decoration {
+    position: absolute;
+    top: 449px;
+    width: 1305px;
+    height: 520px;
+    /* border: 5px solid #BE985E; */
+}
+
+.decorate-shape3 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
 }
