@@ -1,32 +1,31 @@
 #header-container {
     width: 100%;
-    height: 18%;
-    /* margin-left: 230px; */
-    /* background: pink; */
+    height: 30%;
 }
 
 #tool-bar {
-    width: 100%;
-    height: 12%;
+    width: 96%;
+    height: 7.8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-left: 30px;
 }
 
 #banner {
-    width: 100%;
-    height: 88%;
+    width: 96%;
+    height: 60%;
     background: url('../../assets/banner.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
+    margin-left: 30px;
 }
 
 .search-icon {
-    color: #ffd166;
+    color: #6dd3ce;
     position: absolute;
     font-size: 20px;
     left: 10px;
@@ -40,15 +39,15 @@
     border-radius: 2px;
     padding-left: 40px;
     border-radius: 20px;
-    border: 2px solid #ffd166;
+    border: 2px solid #ffffff;
 }
 
 .input-search::placeholder {
-    color: #ffd166;
+    color: #6dd3ce;
 }
 
 .name {
-    color: #ffd166;
+    color: #6dd3ce;
     font-family: "Exo 2", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -61,7 +60,7 @@
     height: 55px;
     /* background: red; */
     border-radius: 50%;
-    border: 2px solid #ffd166;
+    border: 2px solid #ffffff;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -77,7 +76,7 @@
 
 .bell-icon,.cart-icon{
     font-size: 20px;
-    color: #ffd166;
+    color: #6dd3ce;
     margin-top: 10px;
 }
 
