@@ -37,6 +37,8 @@ function Login() {
         } catch (error) {
             console.log(error);
             alert(error.response.data.message);
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/getNewCaptcha`, {}, { withCredentials: true });
+            setBase64Captcha(response.data.base64);
         }
     };
 
