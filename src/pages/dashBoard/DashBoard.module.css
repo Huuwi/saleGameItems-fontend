@@ -30,9 +30,30 @@
     color: white;
     padding: 10px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .menu:hover {
     background-color: rgb(129, 129, 129);
     border-radius: 10px;
+}
+
+.menu-name {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.nav-horizional {
+    font-size: 25px;
+    color: white;
+}
+
+.nav-horizional>p {
+    margin-bottom: 7px;
+    margin-left: 20px;
+    font-family: "Teko", serif;
+    font-size: 35px;
+    cursor: pointer;
 }

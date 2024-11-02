@@ -5,7 +5,8 @@
     position: absolute;
     transition: 1s;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-    /* left: -20%; */
+    padding-left: 20px;
+    z-index: 1;
 }
 
 .menu-Title {
@@ -13,7 +14,10 @@
     margin-left: 5px;
     font-weight: bold;
     margin-top: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-family: "Teko", serif;
+    font-size: 30px;
 }
 
 .nav-vertical {
@@ -43,4 +47,5 @@
     display: block;
     width: 100%;
     height: 100%;
+    font-family: "Kanit", sans-serif;
 }

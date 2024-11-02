@@ -1,10 +1,15 @@
 import React from "react";
 import style from './Navbar.dashboard.module.css'
+import { HiOutlineSquares2X2 } from "react-icons/hi2";
 
-function NavbarDashboard() {
+function NavbarDashboard({ hide }) {
+
+
     return (
         <>
-            <div id={style["nav-container"]}>
+            <div id={style["nav-container"]}
+                style={{ left: hide ? '-20%' : '0px' }}
+            >
                 <p className={style["menu-Title"]}>MENU</p>
                 <ul className={style["nav-vertical"]}>
                     <li>
