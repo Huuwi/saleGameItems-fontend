@@ -5,7 +5,6 @@ import { FaBell, FaSearch, FaShoppingCart } from "react-icons/fa";
 function HeaderDashboard() {
 
     let urlAvatar = JSON.parse(localStorage.getItem("userData")).avartar
-    // console.log(urlAvatar);
 
 
     return (

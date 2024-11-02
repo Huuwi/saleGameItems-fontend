@@ -3,11 +3,12 @@ import style from './Products.module.css';
 import { FaUserFriends, FaChartPie, FaStore, FaCommentDots, FaWallet, FaUserCircle } from 'react-icons/fa';
 import axios from 'axios';
 import { json } from 'react-router-dom';
+import ItemList from '../ItemList/ItemList';
 
 function Products() {
     return (
         <>
-            <div className={style["product-type"]}>
+            {/* <div className={style["product-type"]}>
                 <p>Danh Mục</p>
 
                 <div className={`${style.product} ${type === "TrangPhuc" ? style.active : ""}`} id={style["product"]} onClick={
@@ -27,7 +28,7 @@ function Products() {
                         setType("Emoji")
                     }
                 }><p>Emoji</p></div>
-            </div>
+            </div> */}
             <ItemList />
         </>
     )

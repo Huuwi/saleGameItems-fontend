@@ -14,8 +14,6 @@ function Item(props) {
 
     let { image, name, nickName, description, price, avatarImg } = dataItem
 
-
-
     return (
         <>
             <div className={style["item"]}>

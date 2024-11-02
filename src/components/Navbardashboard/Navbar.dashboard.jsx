@@ -1,41 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from './Navbar.dashboard.module.css'
-import { HiOutlineSquares2X2 } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 
-function NavbarDashboard({ hide }) {
+function NavbarDashboard() {
+    let navigate = useNavigate()
+
+    let arrayPages = [
+        //"Dashboard", "Tài khoản của tôi", "Kho đồ của tôi", "Sàn giao dịch", "Nạp tiền", "Thống kê giao dịch", "Vòng quay may mắn", "Tin nhắn"
+        { name: "DashBoard", path: "/dashBoard" },
+        { name: "Tài khoản của tôi", path: "/myAccount" },
+        { name: "Kho đồ của tôi", path: "/myInventories" },
+        { name: "Sàn giao dịch", path: "/products" },
+        { name: "Nạp tiền", path: "/payMent" },
+        { name: "Thống kê giao dịch", path: "/statisticsTransaction" },
+        { name: "Vòng quay may mắn", path: "/gacha" },
+        { name: "Tin nhắn", path: "/messages" },
+    ]
+
+    const styleLiSelected = {
+        padding: '10px 20px',
+        width: '70%',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: 'greenyellow',
+        borderRadius: "20px"
+    };
+
+    const handleClick = (e) => {
+        navigate(e.path)
+    };
+
+    const htmlContent = arrayPages.map((e) => {
+        return (
+            <li
+                key={e.name}
+                style={e.path == location.pathname ? styleLiSelected : {}}
+                onClick={() => handleClick(e)}
+            >
+                <p>{e.name}</p>
+            </li>
+        );
+    });
 
 
     return (
         <>
-            <div id={style["nav-container"]}
-                style={{ left: hide ? '-20%' : '0px' }}
-            >
+            <div id={style["nav-container"]}>
                 <p className={style["menu-Title"]}>MENU</p>
                 <ul className={style["nav-vertical"]}>
-                    <li>
-                        <p>Dashboard</p>
-                    </li>
-                    <li>
-                        <p>Sàn giao dịch</p>
-                    </li>
-                    <li>
-                        <p>Kho đồ</p>
-                    </li>
-                    <li>
-                        <p>Nạp tiền</p>
-                    </li>
-                    <li>
-                        <p>Thống kê giao dịch</p>
-                    </li>
-                    <li>
-                        <p>Gacha</p>
-                    </li>
-                    <li>
-                        <p>Tin nhắn</p>
-                    </li>
-                    <li>
-                        <p>Tài khoản của tôi</p>
-                    </li>
+                    {htmlContent}
                 </ul>
             </div>
         </>

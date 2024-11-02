@@ -6,6 +6,7 @@ function Footer() {
         <>
             <div className={style["footer-container"]}>
                 <div className={style["decoration-box1"]}></div>
+                <div className={style["decoration-box2"]}></div>
             </div>
         </>
     )

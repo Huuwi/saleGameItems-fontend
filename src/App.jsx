@@ -7,6 +7,7 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Dashboard from './pages/dashBoard/DashBoard.jsx'
 import Test from './pages/test/Test.jsx'
 import Products from './components/Products/Products.jsx'
+import MyAccount from "./pages/MyAccount/MyAccount.jsx"
 
 function App() {
 
@@ -57,10 +58,11 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<h1> home page </h1>} />
         <Route path='/dashBoard' element={<Dashboard />} />
         <Route path='/test' element={<Test />} />
         <Route path='/products' element={<Products />} />
+        <Route path='/myAccount' element={<MyAccount />} />
       </Routes>
     </>
   )
