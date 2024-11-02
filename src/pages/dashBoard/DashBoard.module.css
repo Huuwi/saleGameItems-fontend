@@ -1,201 +1,38 @@
-.dashboard-container {
+.dashboard_container {
+    width: 100%;
     height: 100%;
-    width: 100%;
-    display: flex;
-    overflow-x: hidden;
-    background: #4c3b4d;
-    padding-left: 230px;
+    background-image: url('../../assets/background3.jpg');
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
 }
 
-.dashboard-container::-webkit-scrollbar {
-    display: none;
-}
-
-#workplace {
-    height: 450%;
-    width: 100%;
-    /* padding: 0px 40px; */
-    display: flex;
-    flex-direction: column;
-}
-
-.news {
+.nav-horizional {
     width: 100%;
     height: 15%;
-    margin-top: 10px;
-    background-color: aliceblue;
-    border-top: 1px solid #f2f5ea;
-    border-bottom: 1px solid #f2f5ea;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    box-shadow: 0 0.3px 0.7px rgba(0, 0, 0, 0.5),
+        0 0.9px 1.7px rgba(0, 0, 0, 0.1), 0 1.8px 3.5px rgba(0, 0, 0, 0.1),
+        0 3.7px 7.3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    opacity: 0.75;
+}
+
+.nav-horizional {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    border-bottom: 15px dashed #4C3B4D;
 }
 
-.title {
-    font-size: 26px;
-    color: black;
-    font-family: "Itim", cursive;
-    padding-bottom: 20px;
-    font-style: italic;
+.menu {
+    font-size: 50px;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
 }
 
-.recommend-product {
-    width: 97%;
-    height: 90%;
-    /* background-color: yellowgreen; */
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.product {
-    height: 90%;
-    width: 30%;
-    /* background-color: aquamarine; */
-    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-    border: 2px solid #BE985E;
-}
-
-.banner-wrapper {
-    width: 100%;
-    height: 70%;
-    max-width: 100%;
-    max-height: 60%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.link-btn {
-    width: 100px;
-    height: 30px;
-}
-
-.product-banner {
-    width: 100%;
-    height: 100%;
-    background: url('../../assets/flo.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transition: 0.3s;
-}
-
-.product-banner:hover {
-    scale: 1.2;
-}
-
-.product-banner1 {
-    width: 100%;
-    height: 100%;
-    background: url('../../assets/nak.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transition: 0.3s;
-}
-
-.product-banner1:hover {
-    scale: 1.2;
-}
-
-.product-banner2 {
-    width: 100%;
-    height: 100%;
-    background: url('../../assets/wukong.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transition: 0.3s;
-}
-
-.product-banner2:hover {
-    scale: 1.2;
-}
-
-.decorate-shape2 {
-    position: absolute;
-    width: 10%;
-    height: 127.7%;
-    background-color: #e94f37;
-    top: 1246px;
-    left: 30px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
-
-.demo-product {
-    width: 100%;
-    height: 30%;
-    margin-top: 100px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.user-desc {
-    height: 40%;
-    width: 100%;
-    background-color: aliceblue;
-    border-top: 15px dashed #4C3B4D;
-    /* opacity: 0.46; */
-}
-
-.decorate-shape {
-    height: 45%;
-    width: 35%;
-    border: 5px solid #BE985E;
-    position: absolute;
-    rotate: 45deg;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    right: 30px;
-    
-}
-
-.img {
-    width: 130%;
-    height: 130%;
-    rotate: -45deg;
-    background: url('../../assets/thresjh.webp');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    position: absolute;
-    bottom: -120px;
-    right: -70px;
-    top: -20px;
-    left: -120px;
-}
-
-.footer {
-    width: 100%;
-    height: 10%;
-    margin-top: 240px;
-    background-color: black;
-}
-
-.video-decoration {
-    position: absolute;
-    top: 449px;
-    width: 1305px;
-    height: 520px;
-    /* border: 5px solid #BE985E; */
-}
-
-.decorate-shape3 {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
+.menu:hover {
+    background-color: rgb(129, 129, 129);
+    border-radius: 10px;
 }
