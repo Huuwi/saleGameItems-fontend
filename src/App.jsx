@@ -12,6 +12,8 @@ import Test from './pages/test/Test.jsx'
 import Products from './components/Products/Products.jsx'
 import MyAccount from "./pages/MyAccount/MyAccount.jsx"
 import MyInventories from './pages/myInventories/MyInventories.jsx'
+import RechargeCard from './pages/payMent/rechargeCard/RechargeCard.jsx'
+import PaymentSuccess from './pages/payMent/paymentSuccess/PaymentSuccess.jsx'
 
 function App() {
 
@@ -44,12 +46,8 @@ function App() {
           localStorage.removeItem("userData")
           navigate("/login")
         }
-
       }
-
-
     }
-
 
 
     fetchData()
@@ -68,6 +66,8 @@ function App() {
         <Route path='/products' element={<Products />} />
         <Route path='/myAccount' element={<MyAccount />} />
         <Route path='/myInventories' element={<MyInventories />} />
+        <Route path='/payMent' element={<RechargeCard />} />
+        <Route path='/paymentSuccess' element={<PaymentSuccess />} />
       </Routes>
     </>
   )

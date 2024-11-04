@@ -12,7 +12,7 @@
 }
 
 .descriptionInventory {
-    min-height: 700px;
+    height: 650px;
     width: 30%;
     position: fixed;
     z-index: 1000;

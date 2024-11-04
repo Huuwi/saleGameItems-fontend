@@ -4,6 +4,7 @@ import axios from "axios"
 
 import NavbarDashboard from "../../components/Navbardashboard/Navbar.dashboard"
 import ShowListInventories from "../../components/ShowListInventories/ShowListInventories.jsx"
+import LinkAccount from "../../components/LinkAccountForm/LinkAccount.jsx"
 
 function MyInventories() {
 
@@ -81,19 +82,19 @@ function MyInventories() {
 
     return (
         <>
-            {
-                userData?.gameId <= 0 ? <h1>Chưa liên kết tài khoản game.</h1> :
-                    !myInventoriesData.length ? <h1>{notication}</h1> :
-                        <div className={styles.wrapper} >
-                            <div className={styles.nav_wrapper}>
-                                <NavbarDashboard />
-                            </div>
-                            <div className={styles.content_wrapper} >
+            <div className={styles.wrapper} >
+                <div className={styles.nav_wrapper}>
+                    <NavbarDashboard />
+                </div>
+                <div className={styles.content_wrapper} >
+                    {userData?.gameId <= 0 ? <LinkAccount />
+                        : !myInventoriesData.length
+                            ? <h1>{notication}</h1> :
+                            <>
                                 {optionNav}
-                                <ShowListInventories displayData={displayData} />
-                            </div>
-                        </div>
-            }
+                                <ShowListInventories displayData={displayData} /></>}
+                </div>
+            </div>
 
         </>
     )

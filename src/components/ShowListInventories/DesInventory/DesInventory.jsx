@@ -49,12 +49,12 @@ function DesInventory(props) {
                 <h1 style={{ color: "yellow", textAlign: "center" }} >Mô tả</h1>
                 <div className={styles.imageInventory} style={{ ...backgroundStyle, margin: "20px" }}>
                 </div>
+                <span style={{ color: "greenyellow", fontSize: "25px", margin: "15px" }}><span style={{ color: "red", fontSize: "27px" }}>Giá bạn đang bán : </span>  {price ? price + " xu" : "Sản phẩm này chưa được bạn bán"}</span>
 
-                <TextRunning text={"Tên : " + name} ms={50} />
+                <span style={{ color: "greenyellow", fontSize: "25px", margin: "15px" }} ><span style={{ color: "red", fontSize: "27px" }}>Tên : </span> {name} </span>
 
-                <TextRunning text={"Thông tin : " + description} ms={50} />
+                <span className={styles.desText}><span style={{ color: "red", fontSize: "27px" }}>Thông tin chi tiết : </span> {description}</span>
 
-                <span className={styles.priceInventory} >Giá bạn đang bán :  {price || "Sản phẩm này chưa được bạn bán"}</span>
             </div>
         </>
     )

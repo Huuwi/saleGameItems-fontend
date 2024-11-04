@@ -10,12 +10,12 @@ function TextRunning(props) {
 
     useEffect(() => {
 
-        // setCurText("")
+        // index.current = -1
         if (index.current < text.length - 1) {
             let timer = setTimeout(() => {
                 index.current += 1
                 setCurText(pre => pre + text[index.current])
-            }, props?.ms || 100)
+            }, props?.ms || 50)
             return () => {
                 clearTimeout(timer)
             }
@@ -26,7 +26,7 @@ function TextRunning(props) {
 
     return (
         <>
-            <span style={{ ...textCss }} >{curtext}</span>
+            <span style={{ ...textCss, color: "greenyellow", margin: "15px", overflow: "inherit" }} >{curtext}</span>
         </>
     )
 

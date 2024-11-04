@@ -23,9 +23,7 @@ function ShowListInventories(props) {
         <>
             <div className={styles.wrapper_listInventories}>
                 <div className={styles.listInventories}>
-
                     {htmlDisplayData}
-
                 </div>
                 <div className={styles.descriptionInventory} >
                     <DesInventory inventoryData={inventoryData} />
