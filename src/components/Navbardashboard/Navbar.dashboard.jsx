@@ -5,9 +5,7 @@ import { useNavigate } from "react-router-dom";
 function NavbarDashboard() {
     let navigate = useNavigate()
 
-    let [currentLiSelected, setCurrentLiSelected] = useState("Dashboard")
     let arrayPages = [
-        //"Dashboard", "Tài khoản của tôi", "Kho đồ của tôi", "Sàn giao dịch", "Nạp tiền", "Thống kê giao dịch", "Vòng quay may mắn", "Tin nhắn"
         { name: "DashBoard", path: "/dashBoard" },
         { name: "Tài khoản của tôi", path: "/myAccount" },
         { name: "Kho đồ của tôi", path: "/myInventories" },
@@ -28,7 +26,6 @@ function NavbarDashboard() {
     };
 
     const handleClick = (e) => {
-        // setCurrentLiSelected(e.name);
         navigate(e.path)
     };
 
@@ -43,10 +40,6 @@ function NavbarDashboard() {
             </li>
         );
     });
-
-    // liSelected.style = { styleLiSelected }
-
-
 
 
     return (
