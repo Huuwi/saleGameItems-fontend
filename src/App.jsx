@@ -4,10 +4,14 @@ import axios from 'axios'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+
+
+
 import Dashboard from './pages/dashBoard/DashBoard.jsx'
 import Test from './pages/test/Test.jsx'
 import Products from './components/Products/Products.jsx'
 import MyAccount from "./pages/MyAccount/MyAccount.jsx"
+import MyInventories from './pages/myInventories/MyInventories.jsx'
 
 function App() {
 
@@ -63,6 +67,7 @@ function App() {
         <Route path='/test' element={<Test />} />
         <Route path='/products' element={<Products />} />
         <Route path='/myAccount' element={<MyAccount />} />
+        <Route path='/myInventories' element={<MyInventories />} />
       </Routes>
     </>
   )
