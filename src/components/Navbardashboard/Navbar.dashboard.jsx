@@ -6,14 +6,14 @@ function NavbarDashboard() {
     let navigate = useNavigate()
 
     let arrayPages = [
-        { name: "DashBoard", path: "/dashBoard" },
+        { name: "Trang chủ", path: "/dashBoard" },
         { name: "Tài khoản của tôi", path: "/myAccount" },
         { name: "Kho đồ của tôi", path: "/myInventories" },
-        { name: "Sàn giao dịch", path: "/products" },
+        { name: "Chợ", path: "/products" },
         { name: "Nạp tiền", path: "/payMent" },
         { name: "Thống kê giao dịch", path: "/statisticsTransaction" },
-        { name: "Vòng quay may mắn", path: "/gacha" },
-        { name: "Tin nhắn", path: "/messages" },
+        { name: "Quay đồ", path: "/gacha" },
+        { name: "Đoạn chat", path: "/messages" },
     ]
 
     const styleLiSelected = {

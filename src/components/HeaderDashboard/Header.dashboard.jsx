@@ -4,7 +4,6 @@ import { HiOutlineSquares2X2 } from "react-icons/hi2";
 import { useNavigate } from 'react-router-dom';
 
 function HeaderDashboard({ handleClickMenuIcon, title }) {
-
     let navigate = useNavigate()
     let userData = JSON.parse(localStorage.getItem("userData"))
     let urlAvatar = userData.avartar
@@ -13,9 +12,9 @@ function HeaderDashboard({ handleClickMenuIcon, title }) {
     return (
         <>
             <div className={style["nav-horizional"]}>
-                <div className={style.infor}>
-                    <div onClick={() => { navigate("/myAccount") }} style={{ backgroundImage: `url(${urlAvatar})`, backgroundSize: "cover", height: "80px", width: "80px", borderRadius: "50%", opacity: 1 }} className={style.avartar} > </div>
-                    <span style={{ color: "white", fontWeight: "bold", whiteSpace: "nowrap" }} > Xin chào : {nickName}</span>
+                <div className={style.infor} id={style['nickname-container']}>
+                    <div onClick={() => { navigate("/myAccount") }} style={{ backgroundImage: `url(${urlAvatar})` }} className={style.avartar} id={style['avatar']}> </div>
+                    <span className={style['nickname']} > Xin chào : {nickName}</span>
                 </div>
                 <HiOutlineSquares2X2 className={style['menu']} onClick={handleClickMenuIcon} />
                 <p className={style['main-title']}>{title}</p>

@@ -3,14 +3,17 @@ import style from './MyAccount.module.css';
 import NavbarDashboard from '../../components/Navbardashboard/Navbar.dashboard';
 import HeaderDashboard from '../../components/HeaderDashboard/Header.dashboard';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const MyAccount = () => {
     let userData = JSON.parse(localStorage.getItem("userData"))
+    // console.log(userData);
 
     const [hide, setHide] = useState(false);
     let [oldPassWord, setOldPassword] = useState("")
     let [newPassWord, setNewPassword] = useState("")
     let [newNickName, setNewNickName] = useState("")
+    let navigate = useNavigate()
 
     function handleClickMenuIcon(hide) {
         setHide(preHide => !preHide);
@@ -20,7 +23,7 @@ const MyAccount = () => {
         const workplace = document.getElementsByClassName(style.input)[0];
         if (workplace) {
             setTimeout(() => {
-                workplace.style.marginLeft = '0';
+                workplace.style.opacity = '1';
             }, 500)
         }
     }, [])
@@ -53,12 +56,24 @@ const MyAccount = () => {
         try {
             await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/changePassWord", { oldPassWord, newPassWord }, { withCredentials: true })
             alert("Đổi mật khẩu thành công!");
+            setOldPassword('')
+            setNewPassword('')
         } catch (error) {
             console.log(error);
             alert(error.response.data.message);
         }
     }
 
+    async function handleOnUnLinkAccount() {
+        try {
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/unLinkAccount", {}, { withCredentials: true })
+            window.location.reload();
+        }
+        catch (error) {
+            console.log(error);
+            alert(error.response.data.message);
+        }
+    }
 
     return (
         <>
@@ -83,6 +98,7 @@ const MyAccount = () => {
                                         <button className={style['save']} onClick={handleChangePassWord} >Xác nhận</button>
                                         <button className={style['link']}
                                             style={userData.gameId > 0 ? { display: 'none' } : { display: 'block' }}
+                                            onClick={() => { navigate('/myInventories') }}
                                         >Liên kết tài khoản game</button>
                                     </div>
                                 </div>
@@ -91,6 +107,13 @@ const MyAccount = () => {
                                     <p>NickName <a>*</a></p>
                                     <input type="text" placeholder='Nhập nickname mới' value={newNickName} onChange={handleOnchangeNickName} />
                                     <button className={style['update-nickname']} onClick={handleClickUpdateNickName}  >Cập nhật</button>
+                                </div>
+
+                                <div className={style["account-infor"]}
+                                    style={userData.gameId > 0 ? { display: 'block' } : { display: 'none' }}
+                                >
+                                    <p>Tài khoản liên kết: {userData.userNameGame}</p>
+                                    <button onClick={handleOnUnLinkAccount}>Hủy liên kết</button>
                                 </div>
                             </div>
                         </div>

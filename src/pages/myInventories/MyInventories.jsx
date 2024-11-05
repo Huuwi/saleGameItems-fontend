@@ -5,7 +5,6 @@ import HeaderDashboard from "../../components/HeaderDashboard/Header.dashboard.j
 import NavbarDashboard from "../../components/Navbardashboard/Navbar.dashboard"
 import ShowListInventories from "../../components/ShowListInventories/ShowListInventories.jsx"
 import LinkAccount from "../../components/LinkAccountForm/LinkAccount.jsx"
-
 function MyInventories() {
 
     let userData = JSON.parse(localStorage.getItem("userData"))

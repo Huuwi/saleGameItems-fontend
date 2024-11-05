@@ -8,7 +8,7 @@
     opacity: 0.75;
     display: flex;
     align-items: center;
-    position: relative;
+    position: fixed;
     z-index: 3;
 }
 
@@ -150,5 +150,36 @@
 
 .avartar:hover {
     cursor: pointer;
-    scale: 1.02;
+    scale: 1.2;
+}
+
+#nickname-container {
+    width: 500px;
+    height: 100%;
+    position: absolute;
+    left: 320px;
+    display: flex;
+}
+
+.nickname {
+    font-family: 'teko';
+    position: absolute;
+    left: 18%;
+    top: 35px;
+    color: #000;
+    background-color: #ADFF2F;
+    padding: 6px;
+    border-radius: 20px;
+}
+
+#avatar {
+    width: 15%;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 20px;
 }

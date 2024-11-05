@@ -1,7 +1,11 @@
 import React from "react";
 import style from "./Item.module.css"
+import { useNavigate } from "react-router-dom";
+import ProductDetail from "../../../pages/ProductDetail/Productdetail";
 
 function Item(props) {
+    const userData = JSON.parse(localStorage.getItem('userData'))
+    const navigate = useNavigate()
 
     let dataItem = props?.dataItem || {
         image: "https://lienquan.garena.vn/wp-content/uploads/2024/05/85bfb0396118e0b32f1e3f4b34911d235875f11c6208c1.png",
@@ -14,6 +18,10 @@ function Item(props) {
 
     let { image, name, nickName, description, price, avatarImg } = dataItem
 
+    const handleDesc = () => {
+        window.open('http://localhost:5173/detail', '_blank');
+    }
+
     return (
         <>
             <div className={style["item"]}>
@@ -21,19 +29,20 @@ function Item(props) {
                     backgroundImage: `url(${image})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "contain",
-                    marginTop: "7px",
                     backgroundPosition: "center",
-                    width: "100%",
-                    height: "40%",
+                    width: "25%",
+                    height: "35%",
                     transition: "1.5s",
-                    cursor: "pointer"
+                    cursor: "pointer",
+                    position: 'absolute',
+                    left: '120px',
+                    top: '40px'
                 }}></div>
-                <p>Tên sản phẩm: {name}</p>
-                <p>Giá sản phẩm: {price} vàng</p>
-                <div className={style["desc"]}>
-                    <p>Giới thiệu sản phẩm: {description}</p>
-                </div>
-                <p>Chủ sản phẩm: {nickName}</p>
+                <p className={style['name']}>Tên sản phẩm: {name}</p>
+                <p className={style['price']}>Giá sản phẩm: {price} xu</p>
+                <p className={style["desc"]} onClick={handleDesc}>Chi tiết sản phẩm</p>
+                <p className={style['producer']}>Người bán: {nickName}</p>
+
             </div >
         </>
     )

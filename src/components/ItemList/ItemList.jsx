@@ -88,18 +88,19 @@ function ItemList() {
         <>
             <div className={style["item-list-container"]}>
                 {htmlContent}
-            </div>
-            <div className={style["btn-container"]} >
-                <button onClick={handleLeftClick} id={style["left"]}
-                    style={{
-                        display: showLeft ? "block" : "none"
-                    }}
-                >Trước</button>
-                <button onClick={handleRightClick} id={style["right"]}
-                    style={{
-                        display: showRight ? "block" : "none"
-                    }}
-                >Sau</button>
+                <div className={style["btn-container"]} >
+                    <button class={style["button-57"]} role="button" onClick={handleLeftClick}
+                        style={{
+                            display: showLeft ? "block" : "none"
+                        }}
+                    ><span class="text">&lt;</span><span>Trước</span></button>
+
+                    <button class={style["button-57"]} role="button" onClick={handleRightClick}
+                        style={{
+                            display: showRight ? "block" : "none"
+                        }}
+                    ><span class="text">&gt;</span><span>Sau</span></button>
+                </div>
             </div>
         </>
     )

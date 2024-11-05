@@ -1,0 +1,21 @@
+.product-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.nav {
+    width: 20%;
+    height: 85%;
+    position: absolute;
+    z-index: 1;
+    top: 117px;
+    transition: 1s;
+    position: fixed;
+}
+
+.workplace {
+    width: 100%;
+    height: 100%;
+    background-color: #1C2541;
+}

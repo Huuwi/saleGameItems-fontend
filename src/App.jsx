@@ -4,16 +4,14 @@ import axios from 'axios'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-
-
-
 import Dashboard from './pages/dashBoard/DashBoard.jsx'
-import Products from './components/Products/Products.jsx'
+import Products from './pages/Products/Product.jsx'
 import MyAccount from "./pages/MyAccount/MyAccount.jsx"
 import MyInventories from './pages/myInventories/MyInventories.jsx'
 import RechargeCard from './pages/payMent/rechargeCard/RechargeCard.jsx'
 import PaymentSuccess from './pages/payMent/paymentSuccess/PaymentSuccess.jsx'
 import ChatWorld from './pages/test/ChatWorld.jsx'
+import ProductDetail from './pages/ProductDetail/Productdetail.jsx'
 
 function App() {
 
@@ -68,6 +66,7 @@ function App() {
         <Route path='/myInventories' element={<MyInventories />} />
         <Route path='/payMent' element={<RechargeCard />} />
         <Route path='/paymentSuccess' element={<PaymentSuccess />} />
+        <Route path='/detail' element={<ProductDetail />} />
       </Routes>
     </>
   )
