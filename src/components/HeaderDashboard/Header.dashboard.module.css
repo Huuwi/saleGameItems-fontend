@@ -1,82 +1,162 @@
-#header-container {
+.nav-horizional {
     width: 100%;
-    height: 30%;
-}
-
-#tool-bar {
-    width: 96%;
-    height: 7.8%;
+    height: 15%;
+    box-shadow: 0 0.3px 0.7px rgba(0, 0, 0, 0.5),
+        0 0.9px 1.7px rgba(0, 0, 0, 0.1), 0 1.8px 3.5px rgba(0, 0, 0, 0.1),
+        0 3.7px 7.3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    opacity: 0.75;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     position: relative;
+}
+
+.menu {
+    font-size: 50px;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.menu:hover {
+    background-color: rgb(129, 129, 129);
+    border-radius: 10px;
+}
+
+.menu-name {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.nav-horizional {
+    font-size: 25px;
+    color: white;
+}
+
+.nav-horizional>p {
+    margin-bottom: 7px;
+    margin-left: 20px;
+    font-family: "Teko", serif;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.nav {
+    width: 20%;
+    height: 85%;
+    position: absolute;
+    z-index: 1;
+    top: 117px;
+    transition: 1s;
+}
+
+.video {
+    position: absolute;
+    z-index: 0;
+}
+
+.decoration {
+    width: 2px;
+    height: 60%;
+    background-color: #ADFF2F;
     margin-left: 30px;
 }
 
-#banner {
-    width: 96%;
-    height: 67%;
-    background: url('../../assets/lolbackground.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+.input {
+    width: 300px;
+    height: 45px;
+    background-color: transparent;
+    margin-left: 50px;
     border-radius: 20px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    margin-left: 30px;
+    border: 1px solid #ADFF2F;
+    padding-left: 45px;
+}
+
+.input::placeholder {
+    color: white;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #EF476F;
 }
 
 .search-icon {
-    color: #6dd3ce;
+    font-size: 25px;
     position: absolute;
-    font-size: 20px;
-    left: 10px;
-    top: 30px;
+    left: 300px;
 }
 
-.input-search {
-    width: 300px;
-    border: none;
-    background: none;
-    border-radius: 2px;
-    padding-left: 40px;
-    border-radius: 20px;
-    border: 2px solid #ffffff;
+
+.button-50 {
+    appearance: button;
+    background-color: #ADFF2F;
+    background-image: none;
+    border: 1px solid #ADFF2F;
+    border-radius: 0px;
+    box-shadow: #fff 4px 4px 0 0, #fff 4px 4px 0 1px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Kanit", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    overflow: visible;
+    padding: 12px 40px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: absolute;
+    right: 30px;
 }
 
-.input-search::placeholder {
-    color: #6dd3ce;
+.button-50:focus {
+    text-decoration: none;
 }
 
-.name {
-    color: #6dd3ce;
-    font-family: "Exo 2", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-size: 20px;
-    margin-bottom: 5px;
+.button-50:hover {
+    text-decoration: none;
+    background: #EF476F;
+    border: 1px solid #EF476F;
 }
 
-.avatar {
-    width: 55px;
-    height: 55px;
-    /* background: red; */
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-    background-repeat: no-repeat;
-    background-size: contain;
+.button-50:active {
+    box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+    outline: 0;
 }
 
-.tool-container{
-    color: #a1a1a1;
-    display: flex;
-    height: 100%;
-    width: 15%;;
-    justify-content: space-between;
-    align-items: center;
+.button-50:not([disabled]):active {
+    box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+    transform: translate(2px, 2px);
 }
 
-.bell-icon,.cart-icon{
-    font-size: 20px;
-    color: #6dd3ce;
-    margin-top: 10px;
+@media (min-width: 768px) {
+    .button-50 {
+        padding: 12px 50px;
+    }
 }
 
+.web-name {
+    font-weight: bold;
+    font-family: "Tiny5", sans-serif;
+    position: absolute;
+    right: 600px;
+    z-index: 3;
+}
+
+.last-letter {
+    position: absolute;
+    font-size: 80px;
+    top: -25px;
+    right: -40px;
+    transform: rotate(20deg);
+}
