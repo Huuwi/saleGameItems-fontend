@@ -2,6 +2,7 @@ import style from './Header.dashboard.module.css'
 import React, { useState } from 'react';
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
+
 function HeaderDashboard() {
 
     const [hide, setHide] = useState(false);

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import style from './Dashboard.module.css';
 import NavbarDashboard from '../../components/Navbardashboard/Navbar.dashboard';
-import { HiOutlineSquares2X2 } from "react-icons/hi2";
 import Footer from '../../components/Footer/Footer';
 import lol from '../../assets/lol2.mp4';
-import { IoSearchOutline } from "react-icons/io5";
+import HeaderDashboard from '../../components/HeaderDashboard/Header.dashboard';
 
 const Dashboard = () => {
     const [hide, setHide] = useState(false);
