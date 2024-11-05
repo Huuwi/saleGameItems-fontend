@@ -10,26 +10,85 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+}
+
+.menu {
+    font-size: 50px;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.menu:hover {
+    background-color: rgb(129, 129, 129);
+    border-radius: 10px;
+}
+
+.menu-name {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.nav-horizional {
+    font-size: 25px;
+    color: white;
+}
+
+.nav-horizional>p {
+    margin-bottom: 7px;
+    margin-left: 20px;
+    font-family: "Teko", serif;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.nav {
+    width: 20%;
+    height: 85%;
+    position: absolute;
+    z-index: 1;
+    top: 117px;
+    transition: 1s;
+}
+
+.video {
+    position: absolute;
+    z-index: 0;
+}
+
+.decoration {
+    width: 2px;
+    height: 60%;
+    background-color: #ADFF2F;
     margin-left: 30px;
 }
 
-#banner {
-    width: 96%;
-    height: 67%;
-    background: url('../../assets/lolbackground.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+.input {
+    width: 300px;
+    height: 45px;
+    background-color: transparent;
+    margin-left: 50px;
     border-radius: 20px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    margin-left: 30px;
+    border: 1px solid #ADFF2F;
+    padding-left: 45px;
+}
+
+.input::placeholder {
+    color: white;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #EF476F;
 }
 
 .search-icon {
-    color: #6dd3ce;
+    font-size: 25px;
     position: absolute;
-    font-size: 20px;
-    left: 10px;
-    top: 30px;
+    left: 300px;
 }
 
 .input-search {
@@ -65,19 +124,29 @@
     background-size: contain;
 }
 
-.tool-container {
-    color: #a1a1a1;
-    display: flex;
-    height: 100%;
-    width: 15%;
-    ;
-    justify-content: space-between;
-    align-items: center;
+.button-50:not([disabled]):active {
+    box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+    transform: translate(2px, 2px);
 }
 
-.bell-icon,
-.cart-icon {
-    font-size: 20px;
-    color: #6dd3ce;
-    margin-top: 10px;
+@media (min-width: 768px) {
+    .button-50 {
+        padding: 12px 50px;
+    }
+}
+
+.web-name {
+    font-weight: bold;
+    font-family: "Tiny5", sans-serif;
+    position: absolute;
+    right: 600px;
+    z-index: 3;
+}
+
+.last-letter {
+    position: absolute;
+    font-size: 80px;
+    top: -25px;
+    right: -40px;
+    transform: rotate(20deg);
 }
