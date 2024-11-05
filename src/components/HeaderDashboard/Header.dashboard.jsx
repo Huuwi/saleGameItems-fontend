@@ -4,7 +4,6 @@ import { HiOutlineSquares2X2 } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 function HeaderDashboard() {
 
-    let urlAvatar = JSON.parse(localStorage.getItem("userData")).avartar
     const [hide, setHide] = useState(false);
 
     const handleClickMenuIcon = () => {
