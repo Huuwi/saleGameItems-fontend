@@ -147,6 +147,8 @@
 .link:hover,
 .update-nickname:hover {
     border-radius: 0;
+    scale: 1.05;
+    opacity: .8;
 }
 
 .save {

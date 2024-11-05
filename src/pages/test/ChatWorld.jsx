@@ -30,7 +30,7 @@ const ChatWorld = () => {
 
     const handleSend = async () => {
         if (inputValue.current.trim()) {
-            let response = await axios.get(import.meta.env.VITE_BACKEND_URL + "/testSocket", { withCredentials: true })
+            let response = await axios.post(import.meta.env.VITE_BACKEND_URL + "/testSocket", { message: inputValue.current }, { withCredentials: true })
             console.log(response.data);
             // inputValue.current = ""
         }

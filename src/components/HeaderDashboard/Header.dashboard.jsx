@@ -1,26 +1,27 @@
 import style from './Header.dashboard.module.css'
 import React, { useState } from 'react';
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
-import { IoSearchOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
-function HeaderDashboard() {
+function HeaderDashboard({ handleClickMenuIcon, title }) {
 
-    const [hide, setHide] = useState(false);
-
-    const handleClickMenuIcon = () => {
-        setHide(!hide);
-    };
+    let navigate = useNavigate()
+    let userData = JSON.parse(localStorage.getItem("userData"))
+    let urlAvatar = userData.avartar
+    let nickName = userData.nickName
 
     return (
         <>
             <div className={style["nav-horizional"]}>
+                <div className={style.infor}>
+                    <div onClick={() => { navigate("/myAccount") }} style={{ backgroundImage: `url(${urlAvatar})`, backgroundSize: "cover", height: "80px", width: "80px", borderRadius: "50%", opacity: 1 }} className={style.avartar} > </div>
+                    <span style={{ color: "white", fontWeight: "bold", whiteSpace: "nowrap" }} > Xin chào : {nickName}</span>
+                </div>
                 <HiOutlineSquares2X2 className={style['menu']} onClick={handleClickMenuIcon} />
-                <p>DASHBOARD</p>
+                <p className={style['main-title']}>{title}</p>
                 <div className={style["decoration"]}></div>
-                <input className={style["input"]} placeholder='Search...'></input>
-                <IoSearchOutline className={style['search-icon']} />
                 <p className={style["web-name"]}>GAMMI<a className={style['last-letter']}>E</a></p>
-                <button class={style["button-50"]} role="button">ĐĂNG XUẤT</button>
+                <button class={style["button-50"]} role="button" onClick={() => { navigate("/login") }} >ĐĂNG XUẤT</button>
             </div>
         </>
     )

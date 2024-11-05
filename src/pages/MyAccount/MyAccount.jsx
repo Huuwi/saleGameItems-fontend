@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import style from './MyAccount.module.css';
 import NavbarDashboard from '../../components/Navbardashboard/Navbar.dashboard';
 import HeaderDashboard from '../../components/HeaderDashboard/Header.dashboard';
+import axios from 'axios';
 
 const MyAccount = () => {
     let userData = JSON.parse(localStorage.getItem("userData"))
 
     const [hide, setHide] = useState(false);
+    let [oldPassWord, setOldPassword] = useState("")
+    let [newPassWord, setNewPassword] = useState("")
+    let [newNickName, setNewNickName] = useState("")
 
     function handleClickMenuIcon(hide) {
         setHide(preHide => !preHide);
@@ -21,6 +25,41 @@ const MyAccount = () => {
         }
     }, [])
 
+    function handleOnchangeNickName(e) {
+        setNewNickName(e.target.value)
+    }
+
+    function handleOnchangeOldPassWord(e) {
+        setOldPassword(e.target.value)
+    }
+
+    function handleOnchangeNewPassWord(e) {
+        setNewPassword(e.target.value)
+    }
+
+
+    async function handleClickUpdateNickName() {
+        try {
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/changeNickName", { newNickName }, { withCredentials: true })
+            window.location.href = "/myAccount"
+        } catch (error) {
+            console.log(error);
+            alert(error.response.data.message);
+        }
+
+    }
+
+    async function handleChangePassWord() {
+        try {
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/changePassWord", { oldPassWord, newPassWord }, { withCredentials: true })
+            alert("Đổi mật khẩu thành công!");
+        } catch (error) {
+            console.log(error);
+            alert(error.response.data.message);
+        }
+    }
+
+
     return (
         <>
             <div className={style["account-container"]}>
@@ -34,14 +73,14 @@ const MyAccount = () => {
                         <div className={style["account-status"]}>
                             <div className={style["input"]}>
                                 <div className={style["other-container"]}>
-                                    <p>Mật Khẩu Mới <a>*</a></p>
-                                    <input type="text" placeholder='Nhập mật khẩu mới' />
-                                    <input type="text" placeholder='Nhập mật khẩu mới' />
+                                    <p>Đổi mật khẩu <a>*</a></p>
+                                    <input type="text" placeholder='Nhập mật khẩu cũ' value={oldPassWord} onChange={handleOnchangeOldPassWord} />
+                                    <input type="text" placeholder='Nhập mật khẩu mới' value={newPassWord} onChange={handleOnchangeNewPassWord} />
                                     <p
                                         style={{ marginBottom: '20px', fontFamily: "Roboto" }}
-                                    >Số Dư: 0 xu</p>
+                                    >Số Dư: {userData.balance} xu</p>
                                     <div className={style["btn-container"]}>
-                                        <button className={style['save']}>Lưu thông tin</button>
+                                        <button className={style['save']} onClick={handleChangePassWord} >Xác nhận</button>
                                         <button className={style['link']}
                                             style={userData.gameId > 0 ? { display: 'none' } : { display: 'block' }}
                                         >Liên kết tài khoản game</button>
@@ -50,8 +89,8 @@ const MyAccount = () => {
 
                                 <div className={style["nickname-container"]}>
                                     <p>NickName <a>*</a></p>
-                                    <input type="text" placeholder='Nhập nickname mới' />
-                                    <button className={style['update-nickname']}>Cập nhật</button>
+                                    <input type="text" placeholder='Nhập nickname mới' value={newNickName} onChange={handleOnchangeNickName} />
+                                    <button className={style['update-nickname']} onClick={handleClickUpdateNickName}  >Cập nhật</button>
                                 </div>
                             </div>
                         </div>
@@ -61,5 +100,4 @@ const MyAccount = () => {
         </>
     );
 };
-
 export default MyAccount;
