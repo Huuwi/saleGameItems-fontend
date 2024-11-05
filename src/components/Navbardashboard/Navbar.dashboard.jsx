@@ -43,14 +43,12 @@ function NavbarDashboard() {
 
 
     return (
-        <>
-            <div id={style["nav-container"]}>
-                <p className={style["menu-Title"]}>MENU</p>
-                <ul className={style["nav-vertical"]}>
-                    {htmlContent}
-                </ul>
-            </div>
-        </>
+        <div id={style["nav-container"]}>
+            <p className={style["menu-Title"]}>MENU</p>
+            <ul className={style["nav-vertical"]}>
+                {htmlContent}
+            </ul>
+        </div>
     )
 }
 

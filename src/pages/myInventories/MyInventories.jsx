@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import styles from "./MyInventories.module.css"
 import axios from "axios"
-
+import HeaderDashboard from "../../components/HeaderDashboard/Header.dashboard.jsx"
 import NavbarDashboard from "../../components/Navbardashboard/Navbar.dashboard"
 import ShowListInventories from "../../components/ShowListInventories/ShowListInventories.jsx"
 import LinkAccount from "../../components/LinkAccountForm/LinkAccount.jsx"
@@ -78,6 +78,12 @@ function MyInventories() {
 
         fetchData()
     }, [])
+
+    const [hide, setHide] = useState(false);
+
+    function handleClickMenuIcon(hide) {
+        setHide(!hide);
+    };
 
 
     return (

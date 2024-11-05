@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    z-index: 3;
 }
 
 .menu {
@@ -36,26 +37,14 @@
     color: white;
 }
 
-.nav-horizional>p {
+.main-title {
     margin-bottom: 7px;
     margin-left: 20px;
     font-family: "Teko", serif;
     font-size: 35px;
     cursor: pointer;
-}
-
-.nav {
-    width: 20%;
-    height: 85%;
-    position: absolute;
-    z-index: 1;
-    top: 117px;
-    transition: 1s;
-}
-
-.video {
-    position: absolute;
-    z-index: 0;
+    display: inline-block;
+    width: 200px;
 }
 
 .decoration {
@@ -63,31 +52,6 @@
     height: 60%;
     background-color: #ADFF2F;
     margin-left: 30px;
-}
-
-.input {
-    width: 300px;
-    height: 45px;
-    background-color: transparent;
-    margin-left: 50px;
-    border-radius: 20px;
-    border: 1px solid #ADFF2F;
-    padding-left: 45px;
-}
-
-.input::placeholder {
-    color: white;
-}
-
-.input:focus {
-    outline: none;
-    border: 1px solid #EF476F;
-}
-
-.search-icon {
-    font-size: 25px;
-    position: absolute;
-    left: 300px;
 }
 
 
@@ -151,12 +115,19 @@
     position: absolute;
     right: 600px;
     z-index: 3;
+    cursor: pointer;
 }
 
 .last-letter {
     position: absolute;
     font-size: 80px;
     top: -25px;
-    right: -40px;
+    right: -60px;
     transform: rotate(20deg);
+    cursor: pointer;
+}
+
+.last-letter:hover {
+    text-decoration: none;
+    color: #ADFF2F;
 }
