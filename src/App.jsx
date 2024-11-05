@@ -8,12 +8,12 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 
 import Dashboard from './pages/dashBoard/DashBoard.jsx'
-import Test from './pages/test/Test.jsx'
 import Products from './components/Products/Products.jsx'
 import MyAccount from "./pages/MyAccount/MyAccount.jsx"
 import MyInventories from './pages/myInventories/MyInventories.jsx'
 import RechargeCard from './pages/payMent/rechargeCard/RechargeCard.jsx'
 import PaymentSuccess from './pages/payMent/paymentSuccess/PaymentSuccess.jsx'
+import ChatWorld from './pages/test/ChatWorld.jsx'
 
 function App() {
 
@@ -62,7 +62,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="/" element={<h1> home page </h1>} />
         <Route path='/dashBoard' element={<Dashboard />} />
-        <Route path='/test' element={<Test />} />
+        <Route path='/test' element={<ChatWorld />} />
         <Route path='/products' element={<Products />} />
         <Route path='/myAccount' element={<MyAccount />} />
         <Route path='/myInventories' element={<MyInventories />} />

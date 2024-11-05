@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './Test.module.css';
+import styles from './ChatWorld.module.css';
 import SocketClient from '../../socket.io/socket';
 import axios from 'axios';
 
 
 
-const Test = () => {
+const ChatWorld = () => {
 
 
     const [messages, setMessages] = useState([]);
@@ -50,7 +50,7 @@ const Test = () => {
     return (
         <div className={styles.messengerContainer}>
             <div className={styles.header}>
-                <h2>Chat</h2>
+                <h2>Kênh chat thế giới</h2>
             </div>
             <div className={styles.messages}>
                 {messages.map((msg, index) => (
@@ -75,4 +75,4 @@ const Test = () => {
     );
 };
 
-export default Test;
+export default ChatWorld;

@@ -1,26 +1,28 @@
+import React from "react";
 import style from './Header.dashboard.module.css'
-import React, { useState } from 'react';
-import { HiOutlineSquares2X2 } from "react-icons/hi2";
-import { IoSearchOutline } from "react-icons/io5";
+import { FaBell, FaSearch, FaShoppingCart } from "react-icons/fa";
+
 function HeaderDashboard() {
 
     let urlAvatar = JSON.parse(localStorage.getItem("userData")).avartar
-    const [hide, setHide] = useState(false);
 
-    const handleClickMenuIcon = () => {
-        setHide(!hide);
-    };
 
     return (
         <>
-            <div className={style["nav-horizional"]}>
-                <HiOutlineSquares2X2 className={style['menu']} onClick={handleClickMenuIcon} />
-                <p>DASHBOARD</p>
-                <div className={style["decoration"]}></div>
-                <input className={style["input"]} placeholder='Search...'></input>
-                <IoSearchOutline className={style['search-icon']} />
-                <p className={style["web-name"]}>GAMMI<a className={style['last-letter']}>E</a></p>
-                <button class={style["button-50"]} role="button">ĐĂNG XUẤT</button>
+            <div id={style["header-container"]}>
+                <div id={style["tool-bar"]}>
+                    <div className={style[""]}>
+                        <input type="text" placeholder="Search..." className={style["input-search"]} />
+                        <FaSearch className={style['search-icon']} />
+                    </div>
+                    <div className={style["tool-container"]}>
+                        <p className={style["name"]}>Amin</p>
+                        <div className={style["avatar"]} style={{ backgroundImage: `url(${urlAvatar})` }}></div>
+                        <FaBell className={style["bell-icon"]}></FaBell>
+                        <FaShoppingCart className={style["cart-icon"]}></FaShoppingCart>
+                    </div>
+                </div>
+                <div id={style["banner"]}></div>
             </div>
         </>
     )
