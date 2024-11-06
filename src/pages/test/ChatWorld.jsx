@@ -18,18 +18,20 @@ const ChatWorld = () => {
 
 
         socket.on("message", (msg) => {
-            console.log(msg);
             setMessages((prevMessages) => [...prevMessages, msg])
         })
 
 
-        socket.on("chat_world", (msg) => {
-            console.log(msg);
-            setMessages((prevMessages) => [...prevMessages, msg])
+        socket.on("chat_world", (data) => {
+            data = JSON.parse(data)
+            let msg = data.message
+            let { nickName } = data.userInfor
+            let message = nickName + " : " + msg
+
+            setMessages((prevMessages) => [...prevMessages, message])
         })
 
         socket.on("connect_error", (err) => {
-            console.log(err.message); // prints the message associated with the error
             alert(err.message)
         });
     }, [])
@@ -49,7 +51,6 @@ const ChatWorld = () => {
 
     const handleOnchange = (e) => {
         inputValue.current = e.target.value
-        console.log(inputValue.current);
     }
 
     return (
