@@ -8,27 +8,29 @@ import axios from 'axios';
 const ChatWorld = () => {
 
 
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState([{ message: "", userInfor: null }]);
     const inputValue = useRef('');
+    let userId = JSON.parse(localStorage.getItem('userData')).userId
+
+
 
 
     useEffect(() => {
         let clientSocket = new SocketClient()
         let socket = clientSocket.connect()
 
-
-        socket.on("message", (msg) => {
-            setMessages((prevMessages) => [...prevMessages, msg])
-        })
-
-
         socket.on("chat_world", (data) => {
             data = JSON.parse(data)
             let msg = data.message
-            let { nickName } = data.userInfor
-            let message = nickName + " : " + msg
 
-            setMessages((prevMessages) => [...prevMessages, message])
+            let message = msg
+            let userInfor = null
+
+            if (data.userInfor.userId != userId) {
+                userInfor = data.userInfor
+            }
+
+            setMessages((prevMessages) => [...prevMessages, { message, userInfor }])
         })
 
         socket.on("connect_error", (err) => {
@@ -60,9 +62,27 @@ const ChatWorld = () => {
             </div>
             <div className={styles.messages}>
                 {messages.map((msg, index) => (
-                    <div key={index} className={styles.message}>
-                        {msg}
-                    </div>
+                    msg.message?.length === 0 ? (
+                        <div key={index} />
+                    ) : (
+                        <div key={index} className={styles.chatContainer}>
+                            {!msg.userInfor ? (
+                                <>
+                                    <div className={styles.message + ' ' + styles.sender}>
+                                        {msg.message}
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className={styles.avartar} style={{ backgroundImage: `url(${msg.userInfor.avartar})` }} />
+                                    <div className={styles.message}>
+                                        <span style={{ color: "red" }}>{msg.userInfor.nickName + " : "}</span>
+                                        {msg.message}
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    )
                 ))}
             </div>
             <div className={styles.inputContainer}>

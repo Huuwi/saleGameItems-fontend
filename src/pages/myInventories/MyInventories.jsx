@@ -50,8 +50,6 @@ function MyInventories() {
         default:
             break;
     }
-    // console.log(displayData);
-
 
 
     let optionNav = <nav className={styles.navbar}>
@@ -77,12 +75,6 @@ function MyInventories() {
 
         fetchData()
     }, [])
-
-    const [hide, setHide] = useState(false);
-
-    function handleClickMenuIcon(hide) {
-        setHide(!hide);
-    };
 
 
     return (

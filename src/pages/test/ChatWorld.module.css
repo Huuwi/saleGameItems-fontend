@@ -25,15 +25,23 @@
     overflow-y: auto;
     max-height: 300px;
     border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
 }
 
-.message {
+/* .message {
     padding: 8px;
     margin: 5px 0;
     border-radius: 5px;
     background-color: #e0e0e0;
     max-width: 75%;
-}
+    word-wrap: break-word;
+
+} */
+
+/* .chatContainer {
+    display: flex;
+} */
 
 .inputContainer {
     display: flex;
@@ -59,4 +67,50 @@
 
 .sendButton:hover {
     background-color: #0056b3;
+}
+
+
+
+/* .messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 300px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+} */
+
+.chatContainer {
+    display: flex;
+    align-items: flex-start;
+    /* Căn chỉnh các phần tử theo chiều dọc */
+    width: 100%;
+    /* Đảm bảo container chiếm hết chiều rộng */
+}
+
+.message {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    max-width: 75%;
+    word-wrap: break-word;
+}
+
+.message.sender {
+    background-color: #007bff;
+    /* Màu nền cho người gửi */
+    color: white;
+    margin-left: auto;
+    /* Đẩy tin nhắn của người gửi sang phải */
+}
+
+.avartar {
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
