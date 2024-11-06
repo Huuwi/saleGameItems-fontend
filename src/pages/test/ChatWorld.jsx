@@ -21,6 +21,13 @@ const ChatWorld = () => {
             console.log(msg);
             setMessages((prevMessages) => [...prevMessages, msg])
         })
+
+
+        socket.on("chat_world", (msg) => {
+            console.log(msg);
+            setMessages((prevMessages) => [...prevMessages, msg])
+        })
+
         socket.on("connect_error", (err) => {
             console.log(err.message); // prints the message associated with the error
             alert(err.message)
@@ -30,9 +37,7 @@ const ChatWorld = () => {
 
     const handleSend = async () => {
         if (inputValue.current.trim()) {
-            let response = await axios.post(import.meta.env.VITE_BACKEND_URL + "/testSocket", { message: inputValue.current }, { withCredentials: true })
-            console.log(response.data);
-            // inputValue.current = ""
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/chatWorld", { message: inputValue.current }, { withCredentials: true })
         }
     };
 
