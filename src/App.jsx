@@ -12,6 +12,7 @@ import RechargeCard from './pages/payMent/rechargeCard/RechargeCard.jsx'
 import PaymentSuccess from './pages/payMent/paymentSuccess/PaymentSuccess.jsx'
 import ChatWorld from './pages/test/ChatWorld.jsx'
 import ProductDetail from './pages/ProductDetail/Productdetail.jsx'
+import Gacha from './pages/Gacha/Gacha.jsx'
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
         <Route path='/payMent' element={<RechargeCard />} />
         <Route path='/paymentSuccess' element={<PaymentSuccess />} />
         <Route path='/detail' element={<ProductDetail />} />
+        <Route path='/gacha' element={<Gacha />} />
       </Routes>
     </>
   )
