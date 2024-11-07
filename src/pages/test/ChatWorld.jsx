@@ -11,9 +11,13 @@ const ChatWorld = () => {
     const [messages, setMessages] = useState([{ message: "", userInfor: null }]);
     const inputValue = useRef('');
     let userId = JSON.parse(localStorage.getItem('userData')).userId
+    const messagesEndRef = useRef(null);
 
-
-
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [messages]);
 
     useEffect(() => {
         let clientSocket = new SocketClient()
@@ -84,6 +88,7 @@ const ChatWorld = () => {
                         </div>
                     )
                 ))}
+                <div ref={messagesEndRef} />
             </div>
             <div className={styles.inputContainer}>
                 <input

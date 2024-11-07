@@ -13,6 +13,7 @@ import PaymentSuccess from './pages/payMent/paymentSuccess/PaymentSuccess.jsx'
 import ChatWorld from './pages/test/ChatWorld.jsx'
 import ProductDetail from './pages/ProductDetail/Productdetail.jsx'
 import Gacha from './pages/Gacha/Gacha.jsx'
+import Chat from './pages/Chat/Chat.jsx'
 
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
         <Route path='/paymentSuccess' element={<PaymentSuccess />} />
         <Route path='/detail' element={<ProductDetail />} />
         <Route path='/gacha' element={<Gacha />} />
+        <Route path='/messages' element={<Chat />} />
       </Routes>
     </>
   )
