@@ -39,7 +39,7 @@
 .search_input {
     width: 80%;
     height: 80%;
-    background-color: #d3e6f0;
+    background-color: #97cdef;
     /* Màu nền nhẹ cho input */
     color: black;
     border: 1px solid #ccc;
@@ -48,13 +48,14 @@
     padding: 10px;
     font-size: 14px;
     transition: all 0.3s ease;
+    color: black;
 }
 
 /* Hiệu ứng khi input được focus */
 .search_input:focus {
     border-color: #4CAF50;
     /* Đổi màu viền khi focus */
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    box-shadow: 5px 5px 5px red;
     /* Hiệu ứng bóng sáng */
     outline: none;
     /* Loại bỏ outline mặc định */

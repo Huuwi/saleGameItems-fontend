@@ -3,15 +3,13 @@ import { UserSelectedContext } from "../../pages/Chat/Chat";
 import { useContext, useState, useEffect, useRef } from "react";
 import { IoSend } from "react-icons/io5";
 import axios from "axios";
-
 import OtherMessage from "./OtherMessage/OtherMessage";
 import OwnMessage from "./OwnMessage/OwnMessage";
 
 function DisplayMessages({ displayMessages }) {
     const { userSelected } = useContext(UserSelectedContext);
-    const messagesEndRef = useRef(null);
-
     const [messageTyping, setMessageTyping] = useState("");
+    const messagesEndRef = useRef(null);
 
     const avatarStyles = {
         backgroundImage: `url(${userSelected?.avartar || ""})`,
@@ -21,12 +19,6 @@ function DisplayMessages({ displayMessages }) {
         backgroundSize: "cover",
         backgroundPosition: "center",
     };
-
-    useEffect(() => {
-        if (messagesEndRef.current) {
-            messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-        }
-    }, [displayMessages]);
 
     async function handleSendMessage() {
         if (!messageTyping.trim()) {
@@ -56,6 +48,19 @@ function DisplayMessages({ displayMessages }) {
         setMessageTyping(e.target.value);
     }
 
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [displayMessages]);
+    console.log(displayMessages);
+
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("vi-VN", { month: "long", day: "numeric", year: "numeric" });
+    };
+
     return (
         <div className={styles.displayMessages_container}>
             <h2 style={{ textAlign: "center" }}>Chat riêng</h2>
@@ -64,17 +69,40 @@ function DisplayMessages({ displayMessages }) {
             <div className={styles.infor_header}>
                 <div className={styles.avatar} style={avatarStyles}></div>
                 <span className={styles.nickName}>{userSelected?.nickName}</span>
+                {/* <span className={styles.userStatus}>{userSelected?.isOnline ? "Online" : "Offline"}</span> */}
             </div>
 
             <div className={styles.content_messages}>
                 {displayMessages.map((message, index) => (
-                    message.isSender
-                        ? <OwnMessage key={index} inforMessage={{ messageContent: message.message }} />
-                        : <OtherMessage key={index} inforMessage={{ messageContent: message.message, avatar: message.inforUser.avatar }} />
-                ))}
-            </div>
+                    <div key={index}>
+                        {index === 0 || formatDate(displayMessages[index - 1].timestamp) !== formatDate(message.timestamp) ? (
+                            <div className={styles.dateSeparator}>
+                                {formatDate(message.inforUser.timeSend)}
+                            </div>
+                        ) : null}
 
-            <div ref={messagesEndRef} />
+                        {message.isSender ? (
+                            <OwnMessage
+                                key={index}
+                                inforMessage={{
+                                    messageContent: message.message,
+                                    timestamp: new Date(message.inforUser.timeSend).toLocaleTimeString("vi-VN", { hour: '2-digit', minute: '2-digit' })
+                                }}
+                            />
+                        ) : (
+                            <OtherMessage
+                                key={index}
+                                inforMessage={{
+                                    messageContent: message.message,
+                                    avatar: message.inforUser.avatar,
+                                    timestamp: new Date(message.inforUser.timeSend).toLocaleTimeString("vi-VN", { hour: '2-digit', minute: '2-digit' })
+                                }}
+                            />
+                        )}
+                    </div>
+                ))}
+                <div ref={messagesEndRef} />
+            </div>
 
             <div className={styles.inputAndSenbtn}>
                 <input

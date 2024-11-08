@@ -1,16 +1,5 @@
+let a = [1, 2, 3, 5, 6]
 
+let b = Object.assign({}, a)
 
-let messages = [
-    {
-        messageId,
-        sender,
-        reception,
-        content,
-    },
-    {
-        messageId,
-        sender,
-        reception,
-        content,
-    }
-]
+console.log(b);

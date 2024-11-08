@@ -5,6 +5,8 @@ import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import DisplayUserSearch from "./DisplayUserSearch/DisplayUserSearch";
 
+import ChatWorld from "../ChatWorld/ChatWorld.jsx"
+
 function SearchUser() {
 
     let [userFounds, setUserFounds] = useState([])
@@ -43,6 +45,7 @@ function SearchUser() {
                             return <DisplayUserSearch key={i} displayData={e} />
                         })
                 }
+                <ChatWorld />
             </div>
         </>
     )

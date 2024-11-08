@@ -35,6 +35,7 @@ function Chat() {
                         nickName: currentUserSelected.nickName,
                         avatar: currentUserSelected.avartar,
                         userId: currentUserSelected.userId,
+                        timeSend: Date.now()
                     },
                 };
                 setDataMessages((prev) => [...prev, addedDataMessages]);
@@ -44,11 +45,22 @@ function Chat() {
         });
 
         socket.on("recipientMessagePrivate", (data) => {
-            console.log(data);
+            let addedDataMessages = {
+                isSender: false,
+                message: data.message,
+                inforUser: {
+                    nickName: data.senderInfor.nickName,
+                    avatar: data.senderInfor.avartar,
+                    userId: data.senderInfor.userId,
+                    timeSend: Date.now()
+                },
+            };
+            setDataMessages((prev) => [...prev, addedDataMessages]);
         });
 
         socket.on("connect_error", (err) => {
             alert(err.message);
+            window.location.href = "/messages"
         });
 
         return () => {
@@ -66,7 +78,6 @@ function Chat() {
                     { withCredentials: true }
                 );
                 let dataMessages = responseDataMessage.data.dataMessagesHandled;
-                console.log(dataMessages);
 
                 setDataMessages(dataMessages);
             } catch (error) {
@@ -77,7 +88,6 @@ function Chat() {
         fetchData();
     }, []);
 
-    console.log(userSelected);
 
 
     // Lọc tin nhắn của người dùng được chọn
