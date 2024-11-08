@@ -14,6 +14,7 @@ import ChatWorld from './pages/test/ChatWorld.jsx'
 import ProductDetail from './pages/ProductDetail/Productdetail.jsx'
 import Gacha from './pages/Gacha/Gacha.jsx'
 import Chat from './pages/Chat/Chat.jsx'
+import AllUserSellingItem from './pages/AllUserSellingItem/AllUserSellingItem.jsx'
 
 function App() {
 
@@ -71,6 +72,7 @@ function App() {
         <Route path='/detail' element={<ProductDetail />} />
         <Route path='/gacha' element={<Gacha />} />
         <Route path='/messages' element={<Chat />} />
+        <Route path='/allUserSellingItem' element={<AllUserSellingItem />} />
       </Routes>
     </>
   )

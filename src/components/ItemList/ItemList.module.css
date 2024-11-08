@@ -3,11 +3,10 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: start;
-    /* background-color: red; */
     margin-left: 303.84px;
     height: 34.7%;
     box-shadow: none;
-    padding-top: 130px;
+    padding-top: 185px;
 }
 
 .btn-container {

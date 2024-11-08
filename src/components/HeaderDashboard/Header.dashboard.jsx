@@ -20,7 +20,7 @@ function HeaderDashboard({ handleClickMenuIcon, title }) {
                 <p className={style['main-title']}>{title}</p>
                 <div className={style["decoration"]}></div>
                 <p className={style["web-name"]}>GAMMI<a className={style['last-letter']}>E</a></p>
-                <button class={style["button-50"]} role="button" onClick={() => { navigate("/login") }} >ĐĂNG XUẤT</button>
+                <button className={style["button-50"]} role="button" onClick={() => { navigate("/login") }} >ĐĂNG XUẤT</button>
             </div>
         </>
     )

@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./Item.module.css"
 import { useNavigate } from "react-router-dom";
-import ProductDetail from "../../../pages/ProductDetail/Productdetail";
 
 function Item(props) {
     const userData = JSON.parse(localStorage.getItem('userData'))
@@ -19,6 +18,11 @@ function Item(props) {
 
 
     let { itemId, image, name, nickName, description, price, avatarImg } = dataItem
+
+    const handleViewAllItems = () => {
+        localStorage.setItem('selectedUserId', userData.userId)
+        navigate("/allUserSellingItem")
+    }
 
     return (
         <div className={style['card']}>
@@ -38,14 +42,22 @@ function Item(props) {
                         top: '40px'
                     }}></div>
                     <p className={style['name']}>Tên sản phẩm: {name}</p>
-                    <p className={style['price']}>Giá sản phẩm: {price} xu</p>
+                    <p className={style['price']}>Giá sản phẩm: <span
+                        style={{ color: 'yellow', display: 'inline' }}
+                    >{price} xu</span></p>
                     <p className={style['producer']}>Người bán: {nickName}</p>
                 </div >
                 <div className={style["back-side"]}>
-                    <span>{description}</span>
+                    <div>
+                        <p>{description}</p>
+                    </div>
+                    <button className={style["button-5"]} role="button">Mua với giá: {price} xu</button>
+                    <button className={style["button-58"]} role="button" onClick={handleViewAllItems}
+                        style={{ fontSize: '13px' }}
+                    >Xem thêm sản phẩm của {nickName}</button>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
