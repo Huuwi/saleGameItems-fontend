@@ -1,8 +1,13 @@
 import styles from "./ListUserChat.module.css";
 import { useNavigate } from "react-router-dom";
 
-function ListUserChat() {
+import UserChatted from "./UserChatted/UserChatted";
+
+
+
+function ListUserChat({ listUserChatted }) {
     let navigate = useNavigate();
+    let listUser = listUserChatted || []
 
     return (
         <div className={styles.listUserChat_container}>
@@ -16,12 +21,14 @@ function ListUserChat() {
 
             <h2>Danh sách người từng nhắn :</h2>
 
-            {/* Danh sách người dùng */}
+
             <div className={styles.userList}>
-                <div className={styles.userItem}>User 1</div>
-                <div className={styles.userItem}>User 2</div>
-                <div className={styles.userItem}>User 3</div>
-                {/* Thêm các người dùng khác ở đây */}
+                {
+                    listUser.map((e, i) => {
+                        return <UserChatted key={i} userChattedData={e} />
+                    })
+                }
+
             </div>
         </div>
     );
