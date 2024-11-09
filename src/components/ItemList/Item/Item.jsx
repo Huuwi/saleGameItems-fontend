@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Item.module.css"
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Item(props) {
     const userData = JSON.parse(localStorage.getItem('userData'))
@@ -22,6 +23,28 @@ function Item(props) {
     const handleViewAllItems = () => {
         localStorage.setItem('selectedUserId', userData.userId)
         navigate("/allUserSellingItem")
+    }
+
+
+
+
+    async function handleClickBuyItem() {
+        const isConfirmed = window.confirm("Bạn có chắc muốn mua đồ này?");
+        if (!isConfirmed) {
+            return
+        }
+        if (userData.balance < price) {
+            alert("Bạn không đủ tiền mua đồ này!")
+            return
+        }
+        try {
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/buyItem", { itemId }, { withCredentials: true })
+            alert("Mua thành công!")
+            window.location.reload()
+        } catch (error) {
+            console.log(error);
+            alert(error.response.data.message);
+        }
     }
 
     return (
@@ -51,10 +74,11 @@ function Item(props) {
                     <div>
                         <p>{description}</p>
                     </div>
-                    <button className={style["button-5"]} role="button">Mua với giá: {price} xu</button>
+                    <button className={style["button-5"]} role="button" onClick={handleClickBuyItem} >Mua với giá: {price} xu</button>
                     <button className={style["button-58"]} role="button" onClick={handleViewAllItems}
                         style={{ fontSize: '13px' }}
-                    >Xem thêm sản phẩm của {nickName}</button>
+                    >Xem thêm sản phẩm của {nickName}
+                    </button>
                 </div>
             </div>
         </div >

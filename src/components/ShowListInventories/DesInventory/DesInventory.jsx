@@ -1,6 +1,6 @@
+import { useState } from "react";
 import styles from "./DesInventory.module.css"
-
-import TextRunning from "../../TextRunner/TextRunning";
+import axios from "axios";
 
 function DesInventory(props) {
     let inventoryData = props?.inventoryData || {
@@ -13,11 +13,11 @@ function DesInventory(props) {
 
 
 
-    let { image, description, price, itemType, name } = inventoryData;
-    console.log({ image, description, price, itemType, name });
+    let { image, description, price, itemType, name, itemId } = inventoryData;
+
+    let [addPrice, setAddPrice] = useState()
 
     let height
-
     switch (itemType) {
         case 1:
             height = "170px"
@@ -30,7 +30,35 @@ function DesInventory(props) {
             break;
     }
 
+    async function handleClickAddItemSalling() {
+        try {
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/addItemSalling", { itemId, price: addPrice }, { withCredentials: true })
+            alert("Đăng bán thành công!")
+            window.location.reload()
+        } catch (error) {
+            console.log(error);
+            alert(error.response.data.message);
+        }
+    }
 
+    async function handleClickDropItem() {
+        const isConfirmed = window.confirm("Bạn có chắc muốn đổi item này lấy 100 xu?");
+        if (!isConfirmed) {
+            return
+        }
+        try {
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/dropItem", { itemId }, { withCredentials: true })
+            alert("Đổi thành công!")
+            window.location.reload()
+        } catch (error) {
+            console.log(error);
+            alert(error.response.data.message);
+        }
+    }
+
+    function handleChangeAddPrice(e) {
+        setAddPrice(e.target.value)
+    }
 
     const backgroundStyle = {
         width: '100%',
@@ -53,7 +81,18 @@ function DesInventory(props) {
 
                 <span style={{ color: "greenyellow", fontSize: "25px", margin: "15px" }} ><span style={{ color: "red", fontSize: "27px" }}>Tên : </span> {name} </span>
 
-                <span className={styles.desText}><span style={{ color: "red", fontSize: "27px" }}>Thông tin chi tiết : </span> {description}</span>
+                <span className={styles.desText} style={{ height: "100px" }}>
+                    <span style={{ color: "red", fontSize: "27px", }}>Thông tin chi tiết : </span>
+                    {description}
+                </span>
+                <button className={styles.drop_item} onClick={handleClickDropItem}>Đổi đồ này lấy 100 xu?</button>
+                {
+                    price ? <div />
+                        : <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                            <input value={addPrice} type="number" placeholder="Nhập giá nếu muốn bán..." className={styles.price_input} onChange={handleChangeAddPrice} />
+                            <button onClick={handleClickAddItemSalling} className={styles.buy_btn} >Bán</button>
+                        </div>
+                }
 
             </div>
         </>

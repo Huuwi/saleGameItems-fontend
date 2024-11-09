@@ -59,7 +59,9 @@ function Chat() {
         });
 
         socket.on("connect_error", (err) => {
-            alert(err.message);
+            // alert(err.message);
+            console.log(err.message);
+
             window.location.href = "/messages"
         });
 

@@ -46,6 +46,7 @@ const ChatWorld = () => {
     const handleSend = async () => {
         if (inputValue.current.trim()) {
             await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/chatWorld", { message: inputValue.current }, { withCredentials: true })
+            inputValue.current = ""
         }
     };
 
@@ -97,6 +98,7 @@ const ChatWorld = () => {
                     onKeyPress={handleKeyPress}
                     className={styles.input}
                     placeholder="Type a message..."
+                // value={inputValue.current}
                 />
                 <button onClick={handleSend} className={styles.sendButton}>
                     Send

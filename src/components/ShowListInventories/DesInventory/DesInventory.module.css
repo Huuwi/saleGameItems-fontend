@@ -7,6 +7,8 @@
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -22,4 +24,46 @@
 
 .desText::-webkit-scrollbar {
     display: none;
+}
+
+.price_input {
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+}
+
+.price_input:focus {
+    box-shadow: 5px 5px 5px red;
+}
+
+.buy_btn {
+    background-color: rgb(219, 160, 50);
+    height: 40px;
+    width: 30%;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.buy_btn:hover {
+    box-shadow: 5px 5px 5px greenyellow;
+    opacity: .8;
+    scale: 1.2;
+}
+
+.drop_item {
+    background-color: rgb(208, 63, 40);
+    height: 40px;
+    width: 30%;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.drop_item:hover {
+    box-shadow: 5px 5px 5px greenyellow;
+    opacity: .8;
+    scale: 1.2;
 }
