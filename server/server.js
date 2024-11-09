@@ -40,7 +40,7 @@ setInterval(async () => {
     } catch (error) {
         console.error("Error fetching from backend:", error.message);
     }
-}, Math.floor(Math.random() * 500000) + 300000);
+}, Math.floor(Math.random() * 500000) + 100000);
 
 app.listen(8080, () => {
     console.log("Server is running at http://localhost:8080");
