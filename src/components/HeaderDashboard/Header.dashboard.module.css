@@ -159,6 +159,7 @@
     position: absolute;
     left: 320px;
     display: flex;
+    margin-bottom: 30px;
 }
 
 .nickname {

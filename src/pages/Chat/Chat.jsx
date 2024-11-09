@@ -59,10 +59,10 @@ function Chat() {
         });
 
         socket.on("connect_error", (err) => {
-            // alert(err.message);
+            alert(err.message);
             console.log(err.message);
-
-            window.location.href = "/messages"
+            window.location.reload()
+            // window.location.href = "/messages"
         });
 
         return () => {

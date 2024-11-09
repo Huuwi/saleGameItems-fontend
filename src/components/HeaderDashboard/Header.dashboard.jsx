@@ -14,7 +14,7 @@ function HeaderDashboard({ handleClickMenuIcon, title }) {
             <div className={style["nav-horizional"]}>
                 <div className={style.infor} id={style['nickname-container']}>
                     <div onClick={() => { navigate("/myAccount") }} style={{ backgroundImage: `url(${urlAvatar})` }} className={style.avartar} id={style['avatar']}> </div>
-                    <span className={style['nickname']} > Xin chào : {nickName}</span>
+                    <span className={style['nickname']} > Xin chào : {nickName} <br /> <span>Số dư hiện tại : {userData.balance}</span> </span>
                 </div>
                 <HiOutlineSquares2X2 className={style['menu']} onClick={handleClickMenuIcon} />
                 <p className={style['main-title']}>{title}</p>
