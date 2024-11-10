@@ -67,7 +67,7 @@ function Products() {
 
     return (
         <div className={style['product-container']}>
-            <HeaderDashboard handleClickMenuIcon={handleClickMenuIcon} title={"DASHBOARD"} />
+            <HeaderDashboard handleClickMenuIcon={handleClickMenuIcon} title={"MARKET"} />
             <div className={style["nav"]} style={{ left: hide ? '-20%' : '0px', }}            >
                 <NavbarDashboard />
             </div>

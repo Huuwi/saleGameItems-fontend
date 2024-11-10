@@ -13,8 +13,12 @@ function HeaderDashboard({ handleClickMenuIcon, title }) {
         <>
             <div className={style["nav-horizional"]}>
                 <div className={style.infor} id={style['nickname-container']}>
-                    <div onClick={() => { navigate("/myAccount") }} style={{ backgroundImage: `url(${urlAvatar})` }} className={style.avartar} id={style['avatar']}> </div>
-                    <span className={style['nickname']} > Xin chào : {nickName} <br /> <span>Số dư hiện tại : {userData.balance}</span> </span>
+                    <div onClick={() => { navigate("/myAccount") }} style={{ backgroundImage: `url(${urlAvatar})`, marginTop: '15px' }} className={style.avartar} id={style['avatar']}> </div>
+                    <span className={style['nickname']} 
+                        style={{fontFamily: 'sans-serif', fontSize: '15px', marginTop: '15px'}}
+                    > Xin chào : {nickName} <br /> <span
+                        style={{fontFamily: 'sans-serif', fontSize: '15px'}}
+                    >Số dư hiện tại : {userData.balance} xu</span> </span>
                 </div>
                 <HiOutlineSquares2X2 className={style['menu']} onClick={handleClickMenuIcon} />
                 <p className={style['main-title']}>{title}</p>

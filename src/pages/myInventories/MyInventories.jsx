@@ -5,6 +5,8 @@ import HeaderDashboard from "../../components/HeaderDashboard/Header.dashboard.j
 import NavbarDashboard from "../../components/Navbardashboard/Navbar.dashboard"
 import ShowListInventories from "../../components/ShowListInventories/ShowListInventories.jsx"
 import LinkAccount from "../../components/LinkAccountForm/LinkAccount.jsx"
+import DesInventory from "../../components/ShowListInventories/DesInventory/DesInventory.jsx"
+
 function MyInventories() {
 
     let userData = JSON.parse(localStorage.getItem("userData"))
@@ -13,6 +15,11 @@ function MyInventories() {
     let [optionSelected, setOptionSelected] = useState(options[0])
     let [notication, setNotication] = useState("Đang tải dữ liệu kho đồ vui lòng đợi!")
     let displayData = []
+    const [hide, setHide] = useState(false);
+
+    function handleClickMenuIcon(hide) {
+        setHide(preHide => !preHide);
+    };
 
     const styleOptionSelected = {
         color: 'greenyellow',
@@ -78,22 +85,23 @@ function MyInventories() {
 
 
     return (
-        <>
-            <div className={styles.wrapper} >
-                <div className={styles.nav_wrapper}>
-                    <NavbarDashboard />
-                </div>
-                <div className={styles.content_wrapper} >
-                    {userData?.gameId <= 0 ? <LinkAccount />
-                        : !myInventoriesData.length
-                            ? <h1>{notication}</h1> :
-                            <>
-                                {optionNav}
-                                <ShowListInventories displayData={displayData} /></>}
-                </div>
+        <div
+            style={{ width: '100%', height: '100%', position: 'relative' }}>
+            <HeaderDashboard handleClickMenuIcon={handleClickMenuIcon} title={"INVENTORY"} />
+            <div className={styles["nav"]} style={{ left: hide ? '-20%' : '0px' }}>
+                <NavbarDashboard />
             </div>
-
-        </>
+            <div className={styles.content_wrapper} >
+                {userData?.gameId <= 0 ? <LinkAccount />
+                    : !myInventoriesData.length
+                        ? <h1>{notication}</h1> :
+                        <>
+                            <ShowListInventories displayData={displayData} />
+                            {optionNav}
+                        </>
+                }
+            </div>
+        </div>
     )
 
 
