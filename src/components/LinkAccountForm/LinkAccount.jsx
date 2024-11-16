@@ -18,6 +18,7 @@ const LinkAccount = () => {
         // event.preventDefault()
         try {
             const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/getNewCaptcha`, {}, { withCredentials: true });
+            localStorage.setItem("keyCaptcha", response.data.key)
             setBase64Captcha(response.data.base64);
         } catch (err) {
             console.error(`Error when loading captcha: ${err}`);
@@ -35,15 +36,15 @@ const LinkAccount = () => {
     async function handleSubmit(event) {
         event.preventDefault()
         try {
-
-            let responseLinkAccount = await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/linkAccount", { userNameGame, passWordGame, text: captcha }, { withCredentials: true })
-            console.log(responseLinkAccount);
+            let key = localStorage.getItem("keyCaptcha")
+            let responseLinkAccount = await axios.post(import.meta.env.VITE_BACKEND_URL + "/auth/linkAccount", { userNameGame, passWordGame, text: captcha, key }, { withCredentials: true })
             window.location.href = "/myInventories"
 
         } catch (error) {
             console.log(error);
             alert(error.response.data.message);
             const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/getNewCaptcha`, {}, { withCredentials: true });
+            localStorage.setItem("keyCaptcha", response.data.key)
             setBase64Captcha(response.data.base64);
         }
 

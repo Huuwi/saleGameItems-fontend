@@ -19,7 +19,7 @@ app.get("/ping", (req, res) => {
             message: "ok from fontEnd!"
         });
     } catch (error) {
-        console.error("Error in /scanModule:", error);
+        console.error("Err when ping:", error);
         res.status(500).send("Internal Server Error");
     }
 });

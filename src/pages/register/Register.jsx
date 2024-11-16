@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from './register.module.css';
+import style from './Register.module.css';
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -23,6 +23,7 @@ function Register() {
                 {},
                 { withCredentials: true }
             );
+            localStorage.setItem("keyCaptcha", response.data.key)
             setBase64Captcha(response.data.base64);
         } catch (err) {
             console.error(`Error when loading captcha: ${err}`);
@@ -32,16 +33,20 @@ function Register() {
 
     const handleRegister = async () => {
         try {
+            let key = localStorage.getItem("keyCaptcha")
             const response = await axios.post(
                 import.meta.env.VITE_BACKEND_URL + "/register",
-                { userName, passWord, rePassWord, nickName, text: captcha },
+                { userName, passWord, rePassWord, nickName, text: captcha, key },
                 { withCredentials: true }
             );
             console.log(response.data);
             navigate("/login");
         } catch (error) {
-            console.error(error);
+            console.log(error);
             alert(error.response.data.message);
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/getNewCaptcha`, {}, { withCredentials: true });
+            localStorage.setItem("keyCaptcha", response.data.key)
+            setBase64Captcha(response.data.base64);
         }
     };
 

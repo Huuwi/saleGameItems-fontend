@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import style from './Dashboard.module.css';
+import style from './DashBoard.module.css';
 import NavbarDashboard from '../../components/Navbardashboard/Navbar.dashboard';
 import Footer from '../../components/Footer/Footer';
 import lol from '../../assets/lol2.mp4';

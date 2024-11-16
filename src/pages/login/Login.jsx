@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from './login.module.css';
+import style from './Login.module.css';
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -19,6 +19,7 @@ function Login() {
     const fetchCaptcha = async () => {
         try {
             const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/getNewCaptcha`, {}, { withCredentials: true });
+            localStorage.setItem("keyCaptcha", response.data.key)
             setBase64Captcha(response.data.base64);
         } catch (err) {
             console.error(`Error when loading captcha: ${err}`);
@@ -28,7 +29,8 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            let responseLogin = await axios.post(import.meta.env.VITE_BACKEND_URL + "/login", { userName, passWord, text: captcha }, { withCredentials: true })
+            let key = localStorage.getItem("keyCaptcha")
+            let responseLogin = await axios.post(import.meta.env.VITE_BACKEND_URL + "/login", { userName, passWord, text: captcha, key }, { withCredentials: true })
             let userData = responseLogin.data.userData
             localStorage.setItem("at", responseLogin.data.at)
             localStorage.setItem("userData", JSON.stringify(userData))
@@ -38,6 +40,7 @@ function Login() {
             console.log(error);
             alert(error.response.data.message);
             const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/getNewCaptcha`, {}, { withCredentials: true });
+            localStorage.setItem("keyCaptcha", response.data.key)
             setBase64Captcha(response.data.base64);
         }
     };

@@ -1,3 +1,4 @@
+/* Style cơ bản cho container */
 .login-container {
     width: 100%;
     height: 100vh;
@@ -9,6 +10,7 @@
     align-items: center;
 }
 
+/* Form đăng nhập */
 .login-form {
     width: 90%;
     max-width: 400px;
@@ -24,13 +26,7 @@
     animation: fadeIn 0.8s ease-in-out;
 }
 
-input::placeholder {
-    color: #f9f9f9;
-    /* Thay đổi màu sắc theo ý muốn */
-    opacity: 0.8;
-    /* Độ mờ (nếu muốn) */
-}
-
+/* Animation fadeIn */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -43,6 +39,7 @@ input::placeholder {
     }
 }
 
+/* Logo */
 .logo {
     width: 100px;
     height: 100px;
@@ -51,6 +48,7 @@ input::placeholder {
     margin-bottom: 10px;
 }
 
+/* Tiêu đề */
 .title {
     font-weight: bold;
     font-family: "Oxanium", sans-serif;
@@ -60,14 +58,7 @@ input::placeholder {
     text-align: center;
 }
 
-label {
-    color: white;
-    width: 100%;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-    margin-left: 20px;
-}
-
+/* Input các trường */
 .input-field {
     width: 100%;
     height: 60px;
@@ -86,6 +77,7 @@ label {
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
+/* Captcha */
 .captcha-container {
     display: flex;
     align-items: center;
@@ -126,8 +118,7 @@ label {
     transform: rotate(360deg);
 }
 
-
-
+/* Nút đăng nhập */
 .login-btn {
     width: 100%;
     height: 50px;
@@ -145,12 +136,14 @@ label {
     transform: scale(1.05);
 }
 
+/* Liên kết quên mật khẩu */
 .forget-password {
     color: rgba(255, 255, 255, 0.7);
     margin-top: 10px;
     font-size: 0.9rem;
 }
 
+/* Thông báo lỗi */
 .error-message {
     color: #ff6347;
     font-size: 0.9rem;
@@ -158,9 +151,12 @@ label {
     text-align: center;
 }
 
-@media (max-width: 600px) {
+/* Media query cho responsive */
+@media (max-width: 768px) {
+
+    /* Chỉnh kích thước form cho các thiết bị nhỏ hơn */
     .login-form {
-        width: 95%;
+        width: 85%;
         padding: 20px;
     }
 
@@ -170,5 +166,114 @@ label {
 
     .login-btn {
         height: 45px;
+    }
+
+    .input-field {
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    .captcha {
+        height: 35px;
+    }
+
+    .captcha-img {
+        width: 120px;
+        height: 35px;
+    }
+
+    /* Giảm kích thước logo */
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Chỉnh kích thước form cho các thiết bị siêu nhỏ (điện thoại) */
+    .login-form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .login-btn {
+        height: 40px;
+    }
+
+    .input-field {
+        height: 45px;
+        font-size: 0.9rem;
+    }
+
+    .captcha {
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .captcha-img {
+        width: 100px;
+        height: 35px;
+    }
+
+    /* Giảm kích thước logo */
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .forget-password {
+        font-size: 0.8rem;
+    }
+
+    .error-message {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-form {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .login-btn {
+        height: 38px;
+    }
+
+    .input-field {
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .captcha {
+        height: 30px;
+        font-size: 0.85rem;
+    }
+
+    .captcha-img {
+        width: 90px;
+        height: 30px;
+    }
+
+    /* Chỉnh logo nhỏ hơn */
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .forget-password {
+        font-size: 0.75rem;
+    }
+
+    .error-message {
+        font-size: 0.75rem;
     }
 }

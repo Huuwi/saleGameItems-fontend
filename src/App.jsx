@@ -11,7 +11,7 @@ import MyInventories from './pages/myInventories/MyInventories.jsx'
 import RechargeCard from './pages/payMent/rechargeCard/RechargeCard.jsx'
 import PaymentSuccess from './pages/payMent/paymentSuccess/PaymentSuccess.jsx'
 import ChatWorld from './pages/test/ChatWorld.jsx'
-import ProductDetail from './pages/ProductDetail/Productdetail.jsx'
+// import ProductDetail from './pages/ProductDetail/Productdetail.jsx'
 import Gacha from './pages/Gacha/Gacha.jsx'
 import Chat from './pages/Chat/Chat.jsx'
 import AllUserSellingItem from './pages/AllUserSellingItem/AllUserSellingItem.jsx'
@@ -69,7 +69,7 @@ function App() {
         <Route path='/myInventories' element={<MyInventories />} />
         <Route path='/payMent' element={<RechargeCard />} />
         <Route path='/paymentSuccess' element={<PaymentSuccess />} />
-        <Route path='/detail' element={<ProductDetail />} />
+        {/* <Route path='/detail' element={<ProductDetail />} /> */}
         <Route path='/gacha' element={<Gacha />} />
         <Route path='/messages' element={<Chat />} />
         <Route path='/allUserSellingItem' element={<AllUserSellingItem />} />
