@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styles from './RechargeCard.module.css';
 import axios from 'axios';
-
+import HeaderDashboard from '../../../components/HeaderDashboard/Header.dashboard';
+import sona from '../../../assets/sona.mp4'
 import NavbarDashboard from '../../../components/Navbardashboard/Navbar.dashboard';
 
 const RechargeCard = () => {
@@ -9,6 +10,12 @@ const RechargeCard = () => {
     let userData = JSON.parse(localStorage.getItem("userData"))
 
     let { nickName, userName, balance } = userData
+
+    const [hide, setHide] = useState(false);
+
+    function handleClickMenuIcon(hide) {
+        setHide(preHide => !preHide);
+    };
 
 
     const [selectedAmount, setSelectedAmount] = useState(null);
@@ -45,41 +52,47 @@ const RechargeCard = () => {
     };
 
     return (
-        <div className={styles.container}>
-            <div className={styles.nav_wrapper}>
-                <NavbarDashboard />
-            </div>
-            <div className={styles.card}>
-                <div className={styles.header}>
-                    <h2 className={styles.nickname}>xin chào , {nickName}</h2>
-                    <p className={styles.username} style={{ color: "white", fontSize: "20px" }}>Tài khoản: {userName}</p>
-                    <p className={styles.balance} style={{ color: "#FFFF00", fontSize: "20px" }}>Số dư: {balance} xu</p>
+        <>
+            <HeaderDashboard handleClickMenuIcon={handleClickMenuIcon} title={"PAYMENT"} />
+            <div className={styles.container}>
+                {/* <video src={sona} autoPlay muted loop
+                    style={{ position: 'absolute', zIndex: '-1' }}
+                ></video> */}
+                <div className={styles["nav"]} style={{ left: hide ? '-20%' : '0px' }}>
+                    <NavbarDashboard />
                 </div>
-
-                <div className={styles.content}>
-                    <p style={{ color: "black", fontSize: "20px", margin: "20px", fontWeight: "bold" }} >Chọn mệnh giá thẻ nạp:</p>
-                    <div className={styles.amountOptions}>
-                        {amounts.map((amount) => (
-                            <div
-                                key={amount}
-                                className={`${styles.amount} ${selectedAmount === amount ? styles.selected : ''}`}
-                                onClick={() => handleSelect(amount)}
-                            >
-                                {amount.toLocaleString()} VND
-                            </div>
-                        ))}
+                <div className={styles.card}>
+                    <div className={styles.header}>
+                        <h2 className={styles.nickname}>Xin chào , {nickName}</h2>
+                        {/* <p className={styles.username} style={{ color: "white", fontSize: "20px", display: 'inline-block' }}>Tài khoản: {userName}</p> */}
+                        <p className={styles.balance} style={{ color: "#FFFF00", fontSize: "20px", display: 'inline-block' }}>Số dư: {balance} xu</p>
                     </div>
-                </div>
 
-                <button
-                    className={styles.confirmButton}
-                    onClick={handleSubmit}
-                    disabled={!selectedAmount}
-                >
-                    Xác nhận
-                </button>
+                    <div className={styles.content}>
+                        <p style={{ color: "white", fontSize: "20px", margin: "20px", fontWeight: "bold" }} >Chọn mệnh giá thẻ nạp: 10k = 250 xu</p>
+                        <div className={styles.amountOptions}>
+                            {amounts.map((amount) => (
+                                <div
+                                    key={amount}
+                                    className={`${styles.amount} ${selectedAmount === amount ? styles.selected : ''}`}
+                                    onClick={() => handleSelect(amount)}
+                                >
+                                    {amount.toLocaleString()} VND
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <button
+                        className={styles.confirmButton}
+                        onClick={handleSubmit}
+                        disabled={!selectedAmount}
+                    >
+                        Xác nhận
+                    </button>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

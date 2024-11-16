@@ -3,46 +3,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-image: url("https://images.alphacoders.com/982/982681.jpg");
+    height: 100%;
+    background-image: url("../../../assets/background7.jpg");
     background-size: cover;
+    overflow: hidden;
+    position: relative;
 }
 
-.nav_wrapper {
+.nav {
     width: 20%;
-    height: 100vh;
+    height: 84.8%;
     position: absolute;
-    z-index: 1;
-    left: 0px;
-    top: 0px;
+    z-index: 2;
+    top: 117px;
     transition: 1s;
-    position: fixed;
-
 }
 
 /* Card styling */
 .card {
-    width: 600px;
+    width: 650px;
     height: 500px;
-    /* Tăng kích thước */
     padding: 30px;
-    /* Tăng khoảng cách */
-    /* background: linear-gradient(145deg, #e6e6e6, #ffffff); */
-    background-color: rgba(60, 196, 75, 0.4);
-
-    border-radius: 16px;
-    /* Tăng độ bo góc */
-    box-shadow: 12px 12px 24px #d1d1d1, -12px -12px 24px #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Arial, sans-serif;
-    color: #333;
+    color: yellowgreen;
     transition: transform 0.2s ease;
+    background-color: rgb(0, 0, 0);
+    border-right: 15px solid #DF2C4D;
+    border-top: 15px solid #99C22E;
+    border-top-right-radius: 50px;
+    margin-top: 100px;
+    margin-left: 250px;
+    opacity: 0.8;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
 }
 
 /* Header styling */
@@ -78,55 +76,49 @@
 
 .amount {
     width: 100px;
-    /* Tăng kích thước */
     padding: 15px;
     text-align: center;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    border-radius: 10px;
-    /* Tăng độ bo góc */
-    box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
+    background: #f0f0f0;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    transition: 0.3s, transform 0.2s;
     font-weight: bold;
     color: #333;
     font-size: 1.1em;
-    /* Tăng kích thước chữ */
 }
 
 .amount:hover {
-    background: #f0f0f0;
-    transform: translateY(-5px);
+    background: linear-gradient(to right, #f2709c, #ff9472);
+    /* box-shadow: 3px 3px 5px #31292D, -1px -1px 5px #ffffff; */
+    transform: translateY(-15px);
 }
 
 .selected {
-    background: #4a90e2;
-    color: #ffffff;
-    box-shadow: 8px 8px 16px rgba(74, 144, 226, 0.4), -8px -8px 16px rgba(74, 144, 226, 0.4);
+    background: linear-gradient(to right, #f2709c, #ff9472);
+    /* box-shadow: 8px 8px 16px rgba(74, 144, 226, 0.4), -8px -8px 16px rgba(74, 144, 226, 0.4); */
 }
 
 /* Confirm button styling */
 .confirmButton {
-    width: 100%;
+    width: 40%;
     padding: 15px;
-    /* Tăng khoảng cách */
     font-size: 1.1em;
-    /* Tăng kích thước chữ */
-    color: #ffffff;
-    background: #4a90e2;
+    color: black;
     border: none;
-    border-radius: 10px;
+    background-color: greenyellow;
+    border-radius: 3px;
     cursor: pointer;
-    box-shadow: 8px 8px 16px rgba(74, 144, 226, 0.4), -8px -8px 16px rgba(74, 144, 226, 0.4);
+    /* box-shadow: 8px 8px 16px rgba(74, 144, 226, 0.4), -8px -8px 16px rgba(74, 144, 226, 0.4); */
     transition: background 0.3s ease, transform 0.2s;
+    margin-top: 60px;
 }
 
 .confirmButton:disabled {
-    background: #cccccc;
+    background: red;
     cursor: not-allowed;
     box-shadow: none;
 }
 
 .confirmButton:hover:not(:disabled) {
-    background: #357ABD;
+    background: greenyellow;
     transform: translateY(-3px);
 }

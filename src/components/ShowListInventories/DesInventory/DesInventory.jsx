@@ -11,8 +11,6 @@ function DesInventory(props) {
         itemType: 1,
     };
 
-
-
     let { image, description, price, itemType, name, itemId } = inventoryData;
 
     let [addPrice, setAddPrice] = useState()
@@ -61,43 +59,46 @@ function DesInventory(props) {
     }
 
     const backgroundStyle = {
-        width: '100%',
-        height,
+        width: '50%',
+        height: '20%',
         backgroundImage: `url(${image})`,
         backgroundSize: 'contain',
         backgroundRepeat: "no-repeat",
         backgroundPosition: 'center',
-        position: 'relative',
+        position: 'absolute',
         overflow: 'hidden',
+        top: '50px',
+        left: '70px'
     };
 
     return (
         <>
             <div className={styles.desWrapper}>
-                <h1 style={{ color: "yellow", textAlign: "center" }} >Mô tả</h1>
-                <div className={styles.imageInventory} style={{ ...backgroundStyle, margin: "20px" }}>
+                <p style={{ color: "black", textAlign: "center", fontSize: '20px', position: 'absolute', top: '14px' }} >{name}</p>
+                <div className={styles["card-wrapper"]}>
+                    <div>
+                        <span style={{ color: "black", fontSize: "18px", position: 'absolute', left: '40px', top: '180px' }}><span style={{ color: "black", fontSize: "20px" }}>Giá bạn đang bán : </span>  {price ? price + " xu" : "<Bạn chưa bán>"}</span>
+                        <div className={styles.imageInventory} style={{ ...backgroundStyle, margin: "20px" }}></div>
+                        <button className={styles.drop_item} onClick={handleClickDropItem}>Đổi đồ này lấy 100 xu?</button>
+                    </div>
                 </div>
-                <span style={{ color: "greenyellow", fontSize: "25px", margin: "15px" }}><span style={{ color: "red", fontSize: "27px" }}>Giá bạn đang bán : </span>  {price ? price + " xu" : "Sản phẩm này chưa được bạn bán"}</span>
-
-                <span style={{ color: "greenyellow", fontSize: "25px", margin: "15px" }} ><span style={{ color: "red", fontSize: "27px" }}>Tên : </span> {name} </span>
-
-                <span className={styles.desText} style={{ height: "100px" }}>
-                    <span style={{ color: "red", fontSize: "27px", }}>Thông tin chi tiết : </span>
+                <span style={{ color: "black", fontSize: "15px", position: 'absolute', bottom: '46px', left: '130px' }}>Thông tin chi tiết</span>
+                <div className={styles["desc"]}>
                     {description}
-                </span>
-                <button className={styles.drop_item} onClick={handleClickDropItem}>Đổi đồ này lấy 100 xu?</button>
+                </div>
                 {
                     price ? <div />
-                        : <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                            <input value={addPrice} type="number" placeholder="Nhập giá nếu muốn bán..." className={styles.price_input} onChange={handleChangeAddPrice} />
+                        : <>
+                            <input value={addPrice} type="number" placeholder="Nhập giá nếu muốn bán..." className={styles.price_input} onChange={handleChangeAddPrice}
+                                style={{ width: '52%', position: 'absolute', left: '40px', top: '220px' }}
+                            />
                             <button onClick={handleClickAddItemSalling} className={styles.buy_btn} >Bán</button>
-                        </div>
+                        </>
                 }
 
             </div>
         </>
     )
-
 }
 
 

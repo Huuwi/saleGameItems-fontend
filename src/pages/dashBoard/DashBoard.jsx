@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import style from './DashBoard.module.css';
 import NavbarDashboard from '../../components/Navbardashboard/Navbar.dashboard';
 import Footer from '../../components/Footer/Footer';
+import sona from '../../assets/sona.mp4'
 import lol from '../../assets/lol2.mp4';
 import HeaderDashboard from '../../components/HeaderDashboard/Header.dashboard';
 
@@ -14,7 +15,7 @@ const Dashboard = () => {
 
     return (
         <div className={style["dashboard_container"]}>
-            <video autoPlay muted loop src={lol} className={style["video"]}>
+            <video autoPlay loop mute src={lol} className={style["video"]}>
                 Trình duyệt của bạn không hỗ trợ video.
             </video>
             <HeaderDashboard handleClickMenuIcon={handleClickMenuIcon} title={"DASHBOARD"} />

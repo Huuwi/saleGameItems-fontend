@@ -1,8 +1,6 @@
 import styles from "./Inventory.module.css"
 
 
-
-
 function Inventory(props) {
     let inventoryData = props?.inventoryData || {
         image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwQ0nezaY4Db_kRm5rYrptD2_AYf93ZI5g7CD5nIo0_xhRd_VKsOc9hCp5k0UD4FEXtkFG1UuqvfBffWg_gMjQ4nvyu3gib_8S34FmPecqQ7Cj8MJl5oEta2QKkjpicoC49d3wYueMW42Rg-FcWAXgj_Zs5MuqA5ZDDqJVIgmjCYv6nlI53yIwdAM-DWdD/w320-h320/pandora's-box-png.png",
@@ -63,8 +61,8 @@ function Inventory(props) {
         <>
 
             <div className={styles.wrapper_inventory} onClick={(e) => { handleClick(e, inventoryData) }} >
-                <div style={appliedStyle}></div>
-                <span style={{ color: "greenyellow" }} >{inventoryData.name}  </span>
+                {/* <div style={appliedStyle}></div>
+                <span style={{ color: "greenyellow" }} >{inventoryData.name}  </span> */}
             </div>
         </>
     )

@@ -19,6 +19,7 @@ function UserItem(props) {
     }
 
     let { itemId, image, name, nickName, description, price, avatarImg } = dataItem
+    let curPrice = 'Giá hiện tại: ' + price + ' xu'
 
     const handleCancelSailing = async () => {
         try {
@@ -43,9 +44,6 @@ function UserItem(props) {
             setNotication("Tải sản phẩm thất bại!");
         }
     }
-
-    console.log(changePrice);
-
 
     return (
         <>
@@ -76,7 +74,7 @@ function UserItem(props) {
                             <p>{description}</p>
                         </div>
                         <div className={style["change-price-container"]} onChange={e => setChangePrice(Number(e.target.value))}>
-                            <input type="number" />
+                            <input type="number" placeholder={curPrice} />
                             <button class={style["button-5"]} role="button" onClick={handleChangePrice}>Sửa giá</button>
                         </div>
                         <button class={style["button-58"]} role="button" onClick={handleCancelSailing}>Hủy bán</button>
